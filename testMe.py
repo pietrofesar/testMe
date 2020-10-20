@@ -82,7 +82,7 @@ problemSets = {# chapter 1 Y. Liang
                'ch6_2.py' : ch6_2, 'ch6_3.py' : ch6_3, 'ch6_4.py' : ch6_4, 'ch6_5.py' : ch6_5, 'ch6_6.py' : ch6_6,
                'ch6_7.py' : ch6_7, 'ch6_8.py' : ch6_8, 'ch6_9.py' : ch6_9, 'ch6_12.py' : ch6_12, 'ch6_13.py' : ch6_13,
                # chapter 8 Y. Liang
-               'ch8_1.py : ch8_1, 'ch8_2.py' : ch8_2, 'ch8_3.py' : ch8_3, 'ch8_4.py' : ch8_4, 'ch8_5.py' : ch8_5,
+               'ch8_1.py' : ch8_1, 'ch8_2.py' : ch8_2, 'ch8_3.py' : ch8_3, 'ch8_4.py' : ch8_4, 'ch8_5.py' : ch8_5,
                'ch8_6.py' : ch8_6, 'ch8_7.py' : ch8_7, 'ch8_8.py' : ch8_8, 'ch8_9.py' : ch8_9, 'ch8_10.py' : ch8_10,
                'ch8_11.py' : ch8_11, 'ch8_12.py' : ch8_12, 'ch8_13.py' : ch8_13,
                # chapter 10 Y. Liang
