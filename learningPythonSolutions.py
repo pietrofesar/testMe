@@ -25,7 +25,7 @@ BA = '\033[1;36m'   # bold aqua
 X = '\033[0m'       # reset
 
 
-def rock_paper_scissors(file):
+def rockPaperScissors(file):
     def test(first, second):
         combined = first + second
         if 'PAPER' in combined and 'ROCK' in combined:
@@ -216,7 +216,7 @@ def fahrenheit(file):
             child.kill(2)
             
 
-def report_card(file):
+def reportCard(file):
         """
         :param file: the python file passed as a command line argument 
         :return None: 
