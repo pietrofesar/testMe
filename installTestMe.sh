@@ -69,10 +69,10 @@ sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/s
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/testMe.py -O /usr/bin/testMe/testMe.py
 
 echo -e "${Y}Installing the updateTestMe utility${X}"
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/APCSP/master/updateTestMe -O /usr/bin/updateTestMe; sudo chmod +x /usr/bin/updateTestMe 
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/updateTestMe -O /usr/bin/updateTestMe; sudo chmod +x /usr/bin/updateTestMe 
 
 echo -e "${Y}Installing the testMe utility${X}"
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/APCSP/master/testMe -O /usr/bin/testMe; sudo chmod +x /usr/bin/testMe
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/testMe -O /usr/bin/testMe; sudo chmod +x /usr/bin/testMe
 
 echo -e "${Y}Removing installTestMe script${X}"
 
