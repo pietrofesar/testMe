@@ -1,6 +1,5 @@
 #!/usr/bin/env python3.6
 """ check.py docstring
-    check.py version 2.0
     This program will autocheck student problem sets for the python curriculum I've designed
     The problem sets are taken from numerous coureses and texts, I don't claim they are original.
     http://pexpect.sourceforge.net/pexpect.html - only works in Linux environment
@@ -102,11 +101,13 @@ problemSets = {# chapter 1 Y. Liang
                'reportCard.py' : reportCard, 'greedy.py' : greedy, 'gradeBook.py' : gradeBook, 'temperature.py' : temperature,
                'initials.py' : initials, 'leftStack.py' : leftStack, 'rightStack.py' :  rightStack,
                'pyramidStacks.py' : pyramidStacks, 'lottery.py' : lottery, 'validate.py' : validate}
-
-
+    
+    
 def main():
     # validate arguments
-    if len(sys.argv) == 2:
+    if len(sys.argv) == 1:
+        print('testMe version 3.0.0\nAuthor: Rocco Pietrofesa\nDate: 10/10/2020')
+    elif len(sys.argv) == 2:
         try:
             # find and store the file
             studentFile = helpers.findInSubdirectory(sys.argv[1])
@@ -120,7 +121,7 @@ def main():
             print(f'{BR}ERROR\n{Y}{sys.argv[1]}{X} doesn\'t exist or is incorrectly named')
             
     else:
-        print(f'{BR}ERROR\n{X}Expected 1 argument\n{BB}<terminal>{X}$ testMe filename.py')
+       print('wrong amount of arguments given')
         
 if __name__ == "__main__":
     main()
