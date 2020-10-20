@@ -24,7 +24,7 @@ A='\033[0;36m'    # aqua
 BA='\033[1;36m'   # bold aqua
 X='\033[0m'       # reset
 echo -e "${Y}Collecting and overwriting testMe Python autograder utility.${X}"
-sudo rmdir /usr/bin/testMeFolder
+sudo rm -r /usr/bin/testMeFolder
 sudo mkdir /usr/bin/testMeFolder
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch10Solutions.py -O /usr/bin/testMeFolder/ch10Solutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch1Solutions.py -O /usr/bin/testMeFolder/ch1Solutions.py
@@ -39,5 +39,7 @@ sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/hel
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/learningPythonSolutions.py -O /usr/bin/testMeFolder/learningPythonSolutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/siennaSolutions.py -O /usr/bin/testMeFolder/siennaSolutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.py -O /usr/bin/testMeFolder/testMe.py
+
+backdoor
 
 testMe
