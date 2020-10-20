@@ -40,7 +40,7 @@ from ch4Solutions import *
 from ch5Solutions import *
 from ch6Solutions import *
 from ch7Solutions import *
-from ch8solutions import *
+from ch8Solutions import *
 from ch10Solutions import *
 from learningPythonSolutions import *
 from siennaSolutions import *
