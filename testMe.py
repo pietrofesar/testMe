@@ -106,7 +106,7 @@ problemSets = {# chapter 1 Y. Liang
 def main():
     # validate arguments
     if len(sys.argv) == 1:
-        print('name: testMe\nVersion: 3.0.0\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com')
+        print(f'{BG}name: testMe\nVersion: 3.0.0\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}')
     elif len(sys.argv) == 2:
         try:
             # find and store the file
