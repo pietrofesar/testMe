@@ -74,6 +74,8 @@ sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/upd
 echo -e "${Y}Installing the testMe utility${X}"
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe -O /usr/bin/testMe; sudo chmod +x /usr/bin/testMe
 
+testMe
+
 echo -e "${Y}Removing installTestMe script${X}"
 
 rm -- "$0"
