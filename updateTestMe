@@ -26,7 +26,7 @@ X='\033[0m'       # reset
 echo -e "${Y}Collecting and overwriting testMe Python autograder utility.${X}"
 
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch10Solutions.py -O /usr/bin/testMeFolder/ch10Solutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch1Solutions.py -O /usr/bin/testMeFolder/chSolutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch1Solutions.py -O /usr/bin/testMeFolder/ch1Solutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch2Solutions.py -O /usr/bin/testMeFolder/ch2Solutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch3Solutions.py -O /usr/bin/testMeFolder/ch3Solutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch4Solutions.py -O /usr/bin/testMeFolder/ch4Solutions.py
