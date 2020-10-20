@@ -25,8 +25,7 @@ sudo rm -r /usr/bin/check.py
 
 echo -e "${Y}Collecting and installing testMe 3.0.0.${X}"
 
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/installTestMe.sh -O updateTestMe
-
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/installTestMe.sh -O installTestMe.sh
 sudo bash installTestMe.sh
 
 rm -- "$0"
