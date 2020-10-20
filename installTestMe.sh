@@ -76,6 +76,8 @@ sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/t
 
 echo -e "${Y}Removing installTestMe script${X}"
 
+testMe
+
 rm -- "$0"
 
-testMe
+
