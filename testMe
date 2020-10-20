@@ -1,7 +1,14 @@
 #!/bin/bash
-# Author: Rocco Pietrofesa
-# Date: 9/5/19
-# python autograder installer script
+
+: '
+ Author: Rocco Pietrofesa
+ Date: 9/2/19
+ TestMe script
+ This script will call the python autograder and pass the second shell argument
+ to be evaluated
+ 
+ need to create a version checker for the autograder
+'
 
 # text color constants
 R='\033[0;31m'    # red
@@ -18,47 +25,5 @@ A='\033[0;36m'    # aqua
 BA='\033[1;36m'   # bold aqua
 X='\033[0m'       # reset
 
-echo -e "${Y}This will update the current Amazon Linux OS${X}"
-sudo yum update
-
-echo -e "${G}Current version of Python:"
-python3 --version
-echo -e "${X}"
-
-echo -e "${Y}Installing pip${X}"
-curl -O https://bootstrap.pypa.io/get-pip.py # Get the install script.
-python3 get-pip.py --user                       # Install pip.
-rm get-pip.py                                # Delete the install script.
-
-export PATH=$PATH:/usr/local/bin
-
-echo -e "${G}Current version of pip:"
-pip3 --version
-echo -e "${X}"
-
-
-echo -e "${Y}Installing the pexpect package${X}"
-pip3 install pexpect --user
-echo -e "${G}Current version of pexpect:"
-pip3 show pexpect
-echo -e "${X}"
-
-echo -e "${Y}Installing the numpy package${X}"
-pip3 install numpy --user
-echo -e "${G}Current version of numpy:"
-pip3 show numpy
-echo -e "${X}"
-
-
-echo -e "${Y}Installing the python autograder source file${X}"
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/pygrader/master/check.py -O /usr/bin/check.py
-
-echo -e "${Y}Installing the updateTestMe utility${X}"
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/APCSP/master/updateTestMe -O /usr/bin/updateTestMe; sudo chmod +x /usr/bin/updateTestMe 
-
-echo -e "${Y}Installing the testMe utility${X}"
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/APCSP/master/testMe -O /usr/bin/testMe; sudo chmod +x /usr/bin/testMe
-
-echo -e "${Y}Removing installTestMe script${X}"
-
-rm -- "$0"
+#python3 /bin/check.py $PWD/$1
+python3 /bin/check.py $1
