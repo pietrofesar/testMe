@@ -294,7 +294,7 @@ def birthMonth(file):
         child.sendline(str(birthMonth))
         
         key = f'You were born in {birthMonths[birthMonth]}'
-        assess(child, f'{file} case {sample + 1}', key)
+        helpers.assess(child, f'{file} case {sample + 1}', key)
         
 
 def gradeBook(file):
@@ -317,7 +317,7 @@ def temperature(file):
     child.sendline('F')
     child.sendline(str(tempC))
     key = f'{tempC * (9/5) + 32:.1f}'
-    assess(child, 'temperature.py case: 1', key)
+    helpers.assess(child, 'temperature.py case: 1', key)
     # check conversion to Celsius
     tempF = random.randint(32, 212)
     child = pexpect.spawnu(f'python3 {file}')
