@@ -1,0 +1,12 @@
+#!/bin/bash
+
+: '
+ Author: Rocco Pietrofesa
+ Date: 9/2/19
+ updateTestMe script
+ This script will fetch and overwrite the latest version of the python autograder
+ 
+ need to create a version checker for the autograder
+'
+
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/pygrader/master/check.py -O /bin/check.py
