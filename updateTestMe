@@ -8,7 +8,8 @@
  
  need to create a version checker for the autograder
 '
-echo 'Collecting and overwriting testMe Python autograder utility.'
+echo -e "${Y}Collecting and overwriting testMe Python autograder utility.${X}"
+
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch10Solutions.py -O /usr/bin/testMe/ch10Solutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch1Solutions.py -O /usr/bin/testMe/chSolutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch2Solutions.py -O /usr/bin/testMe/ch2Solutions.py
