@@ -64,7 +64,7 @@ sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch6
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch7Solutions.py -O /usr/bin/testMeFolder/ch7Solutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch8Solutions.py -O /usr/bin/testMeFolder/ch8Solutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/helpers.py -O /usr/bin/testMeFolder/helpers.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/learningPythonsSolutions.py -O /usr/bin/testMeFolder/learningPythonsSolutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/learningPythonSolutions.py -O /usr/bin/testMeFolder/learningPythonSolutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/siennaSolutions.py -O /usr/bin/testMeFolder/siennaSolutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.py -O /usr/bin/testMeFolder/testMe.py
 
