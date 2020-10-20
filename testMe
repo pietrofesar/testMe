@@ -26,4 +26,4 @@ BA='\033[1;36m'   # bold aqua
 X='\033[0m'       # reset
 
 #python3 /bin/check.py $PWD/$1
-python3 /bin/testMeFolder/testMe.py $1
+python3 usr/bin/testMeFolder/testMe.py $1
