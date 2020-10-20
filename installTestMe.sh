@@ -50,8 +50,23 @@ pip3 show numpy
 echo -e "${X}"
 
 
-echo -e "${Y}Installing the python autograder source file${X}"
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/pygrader/master/check.py -O /usr/bin/check.py
+echo -e "${Y}Installing the Python autograder testMe source file${X}"
+# make folder for files
+sudo mkdir /usr/bin/testMe
+# download source files
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch10Solutions.py -O /usr/bin/testMe/ch10Solutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch1Solutions.py -O /usr/bin/testMe/chSolutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch2Solutions.py -O /usr/bin/testMe/ch2Solutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch3Solutions.py -O /usr/bin/testMe/ch3Solutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch4Solutions.py -O /usr/bin/testMe/ch4Solutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch5Solutions.py -O /usr/bin/testMe/ch5Solutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch6Solutions.py -O /usr/bin/testMe/ch6Solutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch7Solutions.py -O /usr/bin/testMe/ch7Solutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/ch8Solutions.py -O /usr/bin/testMe/ch8Solutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/helpers.py -O /usr/bin/testMe/helpers.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/learningPythonsSolutions.py -O /usr/bin/testMe/learningPythonsSolutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/siennaSolutions.py -O /usr/bin/testMe/siennaSolutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/master/testMe.py -O /usr/bin/testMe/testMe.py
 
 echo -e "${Y}Installing the updateTestMe utility${X}"
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/APCSP/master/updateTestMe -O /usr/bin/updateTestMe; sudo chmod +x /usr/bin/updateTestMe 
@@ -62,3 +77,5 @@ sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/APCSP/master/te
 echo -e "${Y}Removing installTestMe script${X}"
 
 rm -- "$0"
+
+testMe
