@@ -40,6 +40,7 @@ sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/lea
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/siennaSolutions.py -O /usr/bin/testMeFolder/siennaSolutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.py -O /usr/bin/testMeFolder/testMe.py
 
-backdoor
+sudo rm /usr/bin/updateTestMe 
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/updateTestMe -O /usr/bin/updateTestMe; sudo chmod +x /usr/bin/updateTestMe
 
 testMe
