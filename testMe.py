@@ -106,7 +106,7 @@ problemSets = {# chapter 1 Y. Liang
 def main():
     # validate arguments
     if len(sys.argv) == 1:
-        print(f'{A}\nName: testMe\nVersion: 3.0.2\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
+        print(f'{A}\nName: testMe\nVersion: 3.0.3\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
     elif len(sys.argv) == 2:
         try:
             # find and store the file
@@ -118,6 +118,7 @@ def main():
                 if i in problemSets:
                     problemSets[pset](studentFile)
                 else:
+                    print(f'{Y}No solution available for {i}{X}')
                     sys.exit()
             else:
                 print(f'{BR}ERROR{R} file does not exist{X}')
