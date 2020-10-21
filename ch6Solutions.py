@@ -30,13 +30,11 @@ def ch6_2(file):
     n = random.randint(0, 9999)
     
     child.sendline(str(n))
-    total = n // 1000
-    remainder = n % 1000
-    total += remainder // 100
-    remainder = n % 100
-    total += remainder // 10
-    total += remainder % 10
-    
+    total = 0
+    while n > 10:
+        total += n % 10
+        n //= 10
+    total += n
     key = f'The sum of the numbers is {total}'
     helpers.assess(child, "ch6_2.py", key)
 
@@ -52,7 +50,6 @@ def ch6_3(file):
     remainder = n % 100
     tens = remainder // 10
     ones = remainder % 10
-    
     key = f'{n} reversed is {ones}{tens}{hundreds}{thousands}'
     helpers.assess(child, "ch6_3.py", key)
 
@@ -60,12 +57,15 @@ def ch6_3(file):
 def ch6_4(file):
     # Test case 1 no palindrome
     child = pexpect.spawnu(f'python3 {file}')
-    not_palindrome = str(random.randint(1, 4))
-    not_palindrome += str(random.randint(0, 9))
-    not_palindrome += str(random.randint(0, 9))
-    not_palindrome += str(random.randint(5, 9))
-    child.sendline(not_palindrome)
-    key = f'No {not_palindrome} is not a palindrome'
+    notPalindrome = ''
+    for i in range(4):
+        while True:
+            digit = str(random.randint(0,9))
+            if digit not in notPalindrome:
+                break
+        notPalindrome += digit
+    child.sendline(notPalindrome)
+    key = f'No {notPalindrome} is not a palindrome'
     helpers.assess(child, 'ch6_4.py Case 1', key)
     
     # Test case 2 palindrome
@@ -106,20 +106,20 @@ def ch6_6(file):
 
 def ch6_7(file):
    
-    def future_value(principle, annual_rate, years):
+    def futureValue(principle, annualRate, years):
         # Computes the return on an investment
-        annual_rate /= 100
-        monthly_rate = annual_rate / 12
+        annualRate /= 100
+        monthlyRate = annualRate / 12
         months = years * 12
-        future_amount = principle * (1 + monthly_rate) ** months
-        return future_amount
+        futureAmount = principle * (1 + monthlyRate) ** months
+        return futureAmount
 
 
-    def create_table(principle, annual_rate, years):
+    def createTable(principle, annualRate, years):
         # Creates a printable table of the loan data
         table = f'{"Years":7}{"Future Value":12}\r\n'
         for year in range(1, years + 1):
-            table += f'{year:<7}{future_value(principle, annual_rate, year):<12.2f}\r\n'
+            table += f'{year:<7}${futureValue(principle, annualRate, year):<12.2f}\r\n'
         return table
     
     
@@ -130,17 +130,17 @@ def ch6_7(file):
     child.sendline(str(principle))
     child.sendline(str(rate))
     child.sendline(str(years))
-    table = f'{create_table(principle, rate, years)}\r\n'
+    table = f'{createTable(principle, rate, years)}\r\n'
     
     helpers.assess(child, 'ch6_7.py', table)
     
 
 def ch6_8(file):
-    def celsius_to_fahreneit(celsius):
+    def celsiusToFahreneit(celsius):
         # Converts from Celsius to Fahrenheit
         return (9 / 5) * celsius + 32
 
-    def fahrenheit_to_celsius(fahrenheit):
+    def fahrenheitToCelsius(fahrenheit):
         # Converts from Fahrenheit to Celsius
         return (5 / 9) * (fahrenheit - 32)
     
@@ -149,73 +149,96 @@ def ch6_8(file):
     table = ''
     table +=f'{"Celsius":<10}{"Fahrenheit":<12}|  {"Fahrenheit":<12}{"Celsius":<10}\r\n'
     for row in range(40, 30, -1):
-        f_temp = celsius_to_fahreneit(float(row))
-        c_temp = fahrenheit_to_celsius(fahrenheit)
-        table += f'{float(row):<10.1f}{f_temp:<12.1f}|  {fahrenheit:<12.1f}{c_temp:<10.2f}\r\n'
+        fTemp = celsiusToFahreneit(float(row))
+        cTemp = fahrenheitToCelsius(fahrenheit)
+        table += f'{float(row):<10.1f}{fTemp:<12.1f}|  {fahrenheit:<12.1f}{cTemp:<10.2f}\r\n'
         fahrenheit -= 10
     helpers.assess(child, 'ch6_8.py', table)
     
     
 def ch6_9(file):
-    def ft_to_m(foot):
+    def feetToMeter(foot):
         # Converts from feet to meters
         return 0.305 * foot
 
 
-    def m_to_ft(meter):
+    def meterToFeet(meter):
         # Converts from meters to feet
         return meter / 0.305
         
     child = pexpect.spawnu(f'python3 {file}')
     meter = 20.0
-    table = ''
-    table += f'{"Feet":<10}{"Meters":<8}|  {"Meters":<10}{"Feet":<10}\r\n'
+    key = ''
+    key += f'{"Feet":<10}{"Meters":<8}|  {"Meters":<10}{"Feet":<10}\r\n'
     for foot in range(1, 11):
-        to_meter = ft_to_m(foot)
-        to_foot = m_to_ft(meter)
-        table += f'{float(foot):<10.1f}{to_meter:<8.3f}|  {meter:<10.1f}{to_foot:<10.3f}\r\n'
+        toMeter = feetToMeter(foot)
+        toFoot = meterToFeet(meter)
+        key += f'{float(foot):<10.1f}{toMeter:<8.3f}|  {meter:<10.1f}{toFoot:<10.3f}\r\n'
         meter += 6
-    helpers.assess(child, 'ch6_9.py', table)
+    helpers.assess(child, 'ch6_9.py', key)
+
+
+def ch6_10(file):
+    def isPrime(number):
+        # Check wether a number is prime
+        divisor = 2
+        while divisor <= number / 2:
+            if number % divisor == 0:
+                # If true, number is not prime
+                return False
+            divisor += 1
+        return True
+
+
+    maxLimit = random.randint(1000, 10000)
+    primes = 0
+    for n in range(1, maxLimit):
+        if isPrime(n):
+            primes += 1
+    key = f'There are {primes} primes in {maxLimit}\r\n'
+    child = pexpect.spawnu(f'python3 {file}')
+    child.sendline(str(maxLimit))
+    helpers.assess(child, 'ch6_10.py', key)
 
 
 def ch6_12(file):
     
-    def print_chars(ch1, ch2, number_per_line):
+    def printChars(ch1, ch2, charsPerLine):
         start = ord(ch1)
-        the_string = ''
+        theString = ''
         while start <= ord(ch2):
-            for i in range(number_per_line):
-                the_string += chr(start)
+            for i in range(charsPerLine):
+                theString += chr(start)
                 start += 1
                 if start > ord(ch2):
                     break
-            the_string += '\r\r\n'
-        return the_string
+            theString += '\r\n'
+        return theString
     
     ch1 = chr(random.randint(33, 80))
     ch2 = chr(random.randint(81, 133))
-    number_per_line = random.randint(5, 15)
-    the_string = print_chars(ch1, ch2, number_per_line)
+    numberPerLine = random.randint(5, 15)
+    key = printChars(ch1, ch2, numberPerLine)
     child = pexpect.spawnu(f'python3 {file}')
     child.sendline(ch1)
     child.sendline(ch2)
-    child.sendline(str(number_per_line))
-    helpers.assess(child, 'ch6_12.py', the_string)
+    child.sendline(str(numberPerLine))
+    helpers.assess(child, 'ch6_12.py', key)
 
 
 def ch6_13(file):
    
-    def sum_series(i):
+    def sumSeries(i):
         # Computes the sum of a series
         total = 0
         for j in range(1, i + 1):
             total += j / (j + 1)
         return total
-    
-    answer_key = ''
-    answer_key += f'{"i":10}{"m(i)":10}\r\n'
-    for i in range(1, 21):
-        total = sum_series(i)
-        answer_key += f'{i:<10}{total:<10.4f}\r\n'
+    maxLimit = random.randint(16, 30)
+    key = f'{"i":10}{"m(i)":10}\r\n'
+    for i in range(1, maxLimit + 1):
+        total = sumSeries(i)
+        key += f'{i:<10}{total:<10.4f}\r\n'
     child = pexpect.spawnu(f'python3 {file}')
-    helpers.assess(child, 'ch6_13.py', answer_key)
+    child.sendline(str(maxLimit))
+    helpers.assess(child, 'ch6_13.py', key)
