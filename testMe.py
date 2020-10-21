@@ -106,22 +106,24 @@ problemSets = {# chapter 1 Y. Liang
 def main():
     # validate arguments
     if len(sys.argv) == 1:
-        print(f'{A}\nName: testMe\nVersion: 3.0.0\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
+        print(f'{A}\nName: testMe\nVersion: 3.0.1\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
     elif len(sys.argv) == 2:
         try:
             # find and store the file
             studentFile = helpers.findInSubdirectory(sys.argv[1])
-            for i in studentFile.split('/'):
-                if i.endswith('.py'):
-                    pset = i
-            problemSets[pset](studentFile)
-           
+            if studentFile != None:
+                for i in studentFile.split('/'):
+                    if i.endswith('.py'):
+                        pset = i
+                problemSets[pset](studentFile)
+            else:
+                print(f'{BR}ERROR{R} file does not exist{X}')
            
         except IOError as e:
             print(f'{BR}ERROR\n{Y}{sys.argv[1]}{X} doesn\'t exist or is incorrectly named')
             
     else:
-       print('wrong amount of arguments given')
+       print(f'{R}Wrong amount of arguments given{X}')
         
 if __name__ == "__main__":
     main()
