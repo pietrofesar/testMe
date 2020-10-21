@@ -106,24 +106,22 @@ problemSets = {# chapter 1 Y. Liang
 def main():
     # validate arguments
     if len(sys.argv) == 1:
-        print(f'{A}\nName: testMe\nVersion: 3.0.2\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
+        print(f'{A}\nName: testMe\nVersion: 3.0.3\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
     elif len(sys.argv) == 2:
-        try:
-            # find and store the file
-            studentFile = helpers.findInSubdirectory(sys.argv[1])
-            for i in studentFile.split('/'):
-                if i.endswith('.py'):
-                    pset = i
-            print(os.path.isfile(studentFile))
-            if os.path.isfile(studentFile):
-                problemSets[pset](studentFile)
-            else:
-                print(f'{R}{pset} not submitted{X}')
-           
-           
-        except IOError as e:
-            print(f'{BR}ERROR\n{Y}{sys.argv[1]}{X} doesn\'t exist or is incorrectly named')
-            
+        studentFile = helpers.findInSubdirectory(sys.argv[1])
+        print(os.path.isfile(studentFile))
+        if os.path.isfile(studentFile):
+            try:
+                # find and store the file
+                for i in studentFile.split('/'):
+                    if i.endswith('.py'):
+                        pset = i
+                
+                    problemSets[pset](studentFile)
+            except IOError as e:
+                print(f'{BR}ERROR\n{Y}{sys.argv[1]}{X} doesn\'t exist or is incorrectly named')
+        else:
+            print(f'{R}{pset} not submitted{X}')
     else:
        print('wrong amount of arguments given')
         
