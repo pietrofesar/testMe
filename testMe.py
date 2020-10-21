@@ -106,7 +106,7 @@ problemSets = {# chapter 1 Y. Liang
 def main():
     # validate arguments
     if len(sys.argv) == 1:
-        print(f'{A}\nName: testMe\nVersion: 3.0.1\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
+        print(f'{A}\nName: testMe\nVersion: 3.0.2\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
     elif len(sys.argv) == 2:
         try:
             # find and store the file
@@ -114,6 +114,7 @@ def main():
             for i in studentFile.split('/'):
                 if i.endswith('.py'):
                     pset = i
+            print(os.path.isfile(studentFile))
             if os.path.isfile(studentFile):
                 problemSets[pset](studentFile)
             else:
