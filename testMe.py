@@ -114,7 +114,10 @@ def main():
             for i in studentFile.split('/'):
                 if i.endswith('.py'):
                     pset = i
-            problemSets[pset](studentFile)
+            if os.path.isfile(studentFile):
+                problemSets[pset](studentFile)
+            else:
+                print(f'{R}{pset} not submitted{X}')
            
            
         except IOError as e:
