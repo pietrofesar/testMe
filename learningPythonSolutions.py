@@ -381,7 +381,9 @@ def rightStack(file):
     
     
 def pyramidStacks(file):
-    key, height, hashes, spaces = '', random.randint(3, 8), 1, height -1
+    height = random.randint(3, 8)
+    hashes, spaces = 1, height - 1
+    key = ''
     for row in range(1, height + 1):
         for space in range(spaces):
             key += ' '
