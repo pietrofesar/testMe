@@ -355,8 +355,7 @@ def ch5_20B(file):
 
 def ch5_20C(file):
     child = pexpect.spawnu(f'python3 {file}')
-    key  = 'Pattern C\r\n'
-    i, spaces = 1, 5
+    i, spaces, key = 1, 5, ''
     for i in range(1, 7):
         for j in range(spaces * 2):
             key += ' '
@@ -370,8 +369,7 @@ def ch5_20C(file):
 
 def ch5_20D(file):
     child = pexpect.spawnu(f'python3 {file}')
-    digits = 7
-    key = 'Pattern D\r\n'
+    digits, key = 7, ''
     for i in range(1, 7):
         for j in range(1, digits):
             key += str(j)
