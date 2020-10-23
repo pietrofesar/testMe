@@ -294,14 +294,14 @@ def ch4_9(file):
 
 def ch4_10(file):
     child = pexpect.spawnu(f'python3 {file}')
-    inputOutput = child.read_nonblocking(size=10, timeout=-1)
+    inputOutput = child.read_nonblocking(size=15, timeout=-1)
     operands = helpers.getOperands(inputOutput)
     child.sendline(str(operands[0] * operands[1]))
     key = 'correct :)'
     helpers.assess(child, f'ch4_10.py Case 1', key, inputOutput)
     
     child = pexpect.spawnu(f'python3 {file}')
-    inputOutput = child.read_nonblocking(size=10, timeout=-1)
+    inputOutput = child.read_nonblocking(size=15, timeout=-1)
     operands = helpers.getOperands(inputOutput)
     total =  operands[0] * operands[1] + random.randint(1, 9)
     child.sendline(str(total))
