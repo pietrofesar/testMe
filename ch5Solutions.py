@@ -364,6 +364,7 @@ def ch5_20C(file):
             key += str(j)
             key += ' '
         spaces -= 1
+        key += '\r\n'
     helpers.assess(child, file, key)
 
 
@@ -376,6 +377,7 @@ def ch5_20D(file):
             key += str(j)
             key += ' '
         digits -= 1
+        key += '\r\n'
     helpers.assess(child, file, key)
 
 
