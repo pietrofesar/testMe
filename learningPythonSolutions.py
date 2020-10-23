@@ -392,6 +392,10 @@ def pyramidStacks(file):
         spaces -= 1
         hashes += 2
         key += '\r\n'
+    child = pexpect.spawnu(f'python3 {file}')     
+    child.sendline(str(height))
+    helpers.assess(child, f'pyramidStacks.py', key)
+    
     
 def validate(file):
     """validate.py autograder 
