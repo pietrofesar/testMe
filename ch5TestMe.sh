@@ -17,7 +17,7 @@ X='\033[0m'       # reset
 
 psets=('ch5_3.py' 'ch5_4.py' 'ch5_5.py' 'ch5_6.py' 'ch5_7.py' 'ch5_8.py' 'ch5_9.py' 'ch5_10.py'
        'ch5_11.py' 'ch5_12.py' 'ch5_13.py' 'ch5_14.py' 'ch5_15.py' 'ch5_16.py' 'ch5_17.py' 
-       'ch5_18.py' 'ch5_19.py' 'ch5_20.py' 'ch5_20A.py' 'ch5_20B.py' '5_21.py' 'leftStack.py' 
+       'ch5_18.py' 'ch5_19.py' 'ch5_20.py' 'ch5_20A.py' 'ch5_20B.py' 'ch5_20C.py' 'ch5_20D.py' '5_21.py' 'leftStack.py' 
        'rightStack.py' 'pyramidStacks.py')
 
 echo 'updating testMe'
