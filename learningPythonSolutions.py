@@ -9,7 +9,7 @@ import helpers
 from subprocess import Popen, PIPE, STDOUT
 
 
-# text color constant
+# text color constants
 R = '\033[0;31m'    # red
 BR = '\033[1;31m'   # bold red
 G = '\033[0;32m'    # green
