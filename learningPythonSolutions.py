@@ -379,58 +379,18 @@ def rightStack(file):
     child.sendline(str(height))
     helpers.assess(child, f'rightStacks.py', key)
     
+    
 def pyramidStacks(file):
-    """pyramidStacks.py autograder """
-    ok = 0
-    checks = 2
-    
-    if file == 'leftStack.py':
-        def getKey(height):
-            key = ''
-            for row in range(1, height + 1):
-                key += row * '#' + '\r\n'
-            return key
-        height = random.randint(3, 10)
-        child = pexpect.spawnu(f'python3 {file}')     
-        child.sendline(str(height))
-        key = getKey(height)
-        helpers.assess(child, f'pyramidStacks.py', key)
-    '''
-    if file == 'leftStack.py':
-        data = [[3, '#\r\n##\r\n###\r\n'], [6, '#\r\n##\r\n###\r\n####\r\n#####\r\n######\r\n']]
-    if file == 'leftStacks.py': 
-        data = [[3, '##\r\n###\r\n####\r\n'], [6, '##\r\n###\r\n####\r\n#####\r\n######\r\n#######\r\n']]
-    if file == 'rightStack.py':
-        data = [[3, '  #\r\n ##\r\n###\r\n'], [6, '     #\r\n    ##\r\n   ###\r\n  ####\r\n #####\r\n######\r\n']]
-    if file == 'rightStacks.py':
-        data = [[3, '  ##\r\n ###\r\n####\r\n'], [6, '     ##\r\n    ###\r\n   ####\r\n  #####\r\n ######\r\n#######\r\n']]
-    if file == 'pyramid.py':
-        data = [[3, '  ##\r\n ####\r\n######\r\n'], [6, '     ##\r\n    ####\r\n   ######\r\n  ########\r\n ##########\r\n############\r\n']]
-    if file == 'pyramidHacker.py':
-        data = [[3, '  /\\\r\n /  \\\r\n/____\\\r\n'], [6, '     /\\\r\n    /  \\\r\n   /    \\\r\n  /      \\\r\n /        \\\r\n/__________\\\r\n']]
-    
-    for i in range(checks):
-        # creates the child instance
-        child = pexpect.spawnu(f'python3 {file}')     
-        child.sendline('{}'.format(data[i][0]))
-        # check the correctness of submission
-        try:
-            child.expect_exact('{}'.format(data[i][1]))
-            # pass
-            print('{}{}{}{}'.format(child.before, G, child.match, X))
-            ok += 1
-        # fail
-        except:
-            print(child.before[:find_nth(child.before, '\r\n', 0)])
-            print('{}Expected output of:\n{}{}{}'.format(BY, R, data[i][1], X))
-            print('{}Acutal output was:\n{}{}{}'.format(BY, R, '\n'.join(b_sanitize(child.before)[1:]), X))
-        if child.isalive:
-            child.kill(2)
-    if ok == checks:
-        print('{}:) {} == passed{}'.format(BY, file, X))
-    else:
-        print('{}:( {} == failed{}'.format(BY, file, X))
-    '''
+    key, height, hashes, spaces = ''. random.randint(3, 8), 1, height -1
+  
+    for row in range(1, height + 1):
+        for space in range(spaces):
+            key += ' ', end=''
+        for hash in range(hashes):
+            key +='#', end=''
+        spaces -= 1
+        hashes += 2
+        key += '\r\n'
     
 def validate(file):
     """validate.py autograder 
