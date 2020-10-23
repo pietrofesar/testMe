@@ -352,8 +352,33 @@ def ch5_20B(file):
         key += '\r\n'
     helpers.assess(child, file, key)   
 
-#def ch5_20C(file):
-#def ch5_20D(file):
+
+def ch5_20C(file):
+    # pattern C
+    key  = 'Pattern C\r\n'
+    i, spaces = 1, 5
+    for i in range(1, 7):
+        for j in range(spaces * 2):
+            key += ' '
+        for j in range(i, 0, -1):
+            key += str(j)
+            key += ' '
+        spaces -= 1
+    helpers.assess(child, file, key)
+
+
+def ch5_20D(file):
+    # pattern D
+    digits = 7
+    key = 'Pattern D\r\n'
+    for i in range(1, 7):
+        for j in range(1, digits):
+            key += str(j)
+            key += ' '
+        digits -= 1
+    helpers.assess(child, file, key)
+
+
 def ch5_21(file):
     # generate python instance
     child = pexpect.spawnu(f'python3 {file}')
