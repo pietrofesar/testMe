@@ -68,14 +68,23 @@ def ch5_3(file):
     
     
 def ch5_4(file):
-    key = f'{"Miles":7}Kilometers\r\n'
-    miles = 1
-    while miles <= 10:
-        kilometers = miles * 1.609
-        key += f'{miles:<7}{kilometers:.3f}\r\n'
-        miles += 1
-    # generate python instance
+    count, accumulator, positives, negatives = 0, 0, 0, 0
+    repeat = random.randint(3, 8)
     child = pexpect.spawnu(f'python3 {file}')
+    for each in range(repeat):
+        integer = random.randint(-10, 10)
+        accumulator += integer
+        if integer > 0:
+            positives += 1
+        else:
+            negatives += 1
+        count += 1
+        child.sendline(str(integer))
+    child.sendline('0')
+    key = f'{accumulator} accumulated value\r\n'
+    key += f'{positives} positives entered\r\n'
+    key += f'{negatives} negatives entered\r\n'
+    key += f'{accumulator / count:.1f} is the average of the numbers\r\n'
     helpers.assess(child, f'ch5_4.py', key)
 
 
