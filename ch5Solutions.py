@@ -89,17 +89,17 @@ def ch5_4(file):
 
 
 def ch5_5(file):
-    key = f'{"Kilograms":<11}{"Pounds":<7}| {"Pounds":<7}{"Kilograms":<9}\r\n'
-    kilograms1 = 1
-    pounds2 = 20
-    while kilograms1 <= 199:
-        pounds1 = kilograms1 * 2.2 
-        kilograms2 = pounds2 * .4536
-        key += f'{kilograms1:<11}{pounds1:<7.1f}| {pounds2:<7}{kilograms2:<9.2f}\r\n'
-        kilograms1 += 2
-        pounds2 += 5
-    # generate python instance
+    helpers.getOperands()
+    repeat = random.randint(3, 8)
     child = pexpect.spawnu(f'python3 {file}')
+    for each in range(repeat):
+        question = child.read_nonblocking(size=13, timeout=-1).strip()
+        print(question)
+        operand1, operand2 = helpers.getOperands(question)
+        child.sendline(str(operand1 + operand2))
+    child.sendline('y')
+    
+    
     helpers.assess(child, f'ch5_5.py', key)
 
 
