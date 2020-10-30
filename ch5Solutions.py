@@ -40,7 +40,10 @@ def ch5_2(file):
     child = pexpect.spawnu(f'python3 {file}')
     accumulator = 0
     for each in range(repeat):
-        integer = random.randint(-10, 10)
+        while True:
+            integer = random.randint(-10, 10)
+            if integer != 0:
+                break
         accumulator += integer
         child.sendline(str(integer))
     child.sendline('0')
@@ -53,7 +56,10 @@ def ch5_3(file):
     repeat = random.randint(3, 8)
     child = pexpect.spawnu(f'python3 {file}')
     for each in range(repeat):
-        integer = random.randint(-10, 10)
+        while True:
+            integer = random.randint(-10, 10)
+            if integer != 0:
+                break
         accumulator += integer
         if integer > 0:
             positives += 1
@@ -72,7 +78,10 @@ def ch5_4(file):
     repeat = random.randint(3, 8)
     child = pexpect.spawnu(f'python3 {file}')
     for each in range(repeat):
-        integer = random.randint(-10, 10)
+        while True:
+            integer = random.randint(-10, 10)
+            if integer != 0:
+                break
         accumulator += integer
         if integer > 0:
             positives += 1
