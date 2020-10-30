@@ -26,106 +26,27 @@ X = '\033[0m'       # reset
 
 
 def ch5_1(file):
-    # generate integers for test case 1
-    integers = []
-    for i in range(random.randint(4, 11)):
-        sign = random.randint(0, 1)
-        if sign == 0:
-            integers.append(random.randint(1, 20))
-        else:
-            integers.append(random.randint(-20, -1))
-    integers.append(0)
-    
-    # summarize the data for case 1
-    tally, positives, negatives, total = 0, 0, 0, 0
-    for i in integers:
-        if i != 0:
-            tally += 1
-            if i > 0:
-                positives += 1
-            else:
-                negatives +=1
-            total += i
-    average = total / tally
-    
-    # generate the output for test case 1
-    key = f'The number of positives is {positives}\r\n'
-    key += f'The number of negatives is {negatives}\r\n'
-    key += f'The total is {total}\r\n'
-    key += f'The average is {average:.2f}\r\n'
+    repeat = random.randint(3, 10)
+    key = ''
+    for i in range(repeat):
+        key += '"Vampire" is not a career choice\r\n'
     child = pexpect.spawnu(f'python3 {file}')
-    # send the input
-    for i in integers:
-        child.sendline(str(i))
-    # test the output
-    helpers.assess(child, f'ch5_1.py Case 1', key)
-    # test case 2
-    child = pexpect.spawnu(f'python3 {file}')
-    # send the input
-    child.sendline(str(0))
-    # correct output
-    key = 'You didn\'t enter any number\r\n'
-    # test the output
-    helpers.assess(child, f'ch5_1.py Case 2', key)
-
+    child.sendline(str(repeat))
+    helpers.assess(child, f'ch5_1.py', key)
+    
 
 def ch5_2(file):
-    DELAY = .1
-    CORRECT_LENGTH = 12
-    WRONG_LENGTH = 26
-    print(f'{BY}!!!+++Time may be off and cause a failure+++!!!{X}')
-    # generate python instance
+    repeat = random.randint(3, 8)
     child = pexpect.spawnu(f'python3 {file}')
-    start = time.time()
-    for i in range(10):
-        # capture child out
-        expression = child.read_nonblocking(size=18, timeout=-1).strip()
-        # extract numbers from child out
-        numbers = helpers.getOperands(expression)
-        # determines if the response is 1 or 2 characters
-        if len(str(sum(numbers))) == 1:
-            size = 1
-        else:
-            size = 2
-        # prints the question
-        print(f'{P}{expression} {B}{str(sum(numbers))}{X}')
-        # sends the correct response
-        child.sendline(str(sum(numbers)))
-        # delays so that all text is present before flushing
-        time.sleep(DELAY)
-        # flushes the inbetween text
-        child.read_nonblocking(size=CORRECT_LENGTH + size, timeout=-1)
-
-    duration = time.time() - start -.1
-    key = f'You got 10 out of 10 correct\r\nTest time is {duration:.1f} seconds'
-    helpers.assess(child, f'ch5_2.py Case 1', key)
-    child.terminate()
+    accumulator = 0
+    for each in range(repeat):
+        integer = random.randint(-10, 10)
+        accumulator += integer
+        child.sendline(str(integer))
+    child.sendline('0')
+    key = f'{accumulator} accumulated value\r\n'
+    helpers.assess(child, f'ch5_2.py', key)
     
-    print(f'{BY}!!!+++Time may be off and cause a failure+++!!!{X}')
-    # generate python instance
-    child = pexpect.spawnu(f'python3 {file}')
-    start = time.time()
-    for i in range(10):
-        # capture child out
-        expression = child.read_nonblocking(size=18, timeout=-1).strip()
-        # extract numbers from child out
-        numbers = helpers.getOperands(expression)
-        # determines if the response is 1 or 2 characters
-        if len(str(sum(numbers))) == 1:
-            size = 1
-        else:
-            size = 2
-        print(f'{P}{expression} {B}{str(sum(numbers))}{X}')
-        # sends the correct response
-        child.sendline(str(sum(numbers) + 1))
-        # delays so that all text is present before flushing
-        time.sleep(DELAY)
-        # flushes the inbetween text
-        child.read_nonblocking(size=WRONG_LENGTH + size, timeout=-1)
-
-    duration = time.time() - start
-    key = f'You got 0 out of 10 correct\r\nTest time is {duration:.1f} seconds'
-    helpers.assess(child, f'ch5_2.py Case 2', key)
 
 
 def ch5_3(file):
