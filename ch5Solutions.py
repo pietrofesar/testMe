@@ -49,9 +49,9 @@ def ch5_2(file):
     
 
 def ch5_3(file):
+    accumulator, positives, negatives = 0, 0, 0
     repeat = random.randint(3, 8)
     child = pexpect.spawnu(f'python3 {file}')
-    accumulator, positives, negatives = 0, 0, 0
     for each in range(repeat):
         integer = random.randint(-10, 10)
         accumulator += integer
@@ -64,7 +64,7 @@ def ch5_3(file):
     key = f'{accumulator} accumulated value\r\n'
     key += f'{positives} positives entered\r\n'
     key += f'{negatives} negatives entered\r\n'
-    helpers.assess(child, f'ch5_2.py', key)
+    helpers.assess(child, f'ch5_3.py', key)
     
     
 def ch5_4(file):
