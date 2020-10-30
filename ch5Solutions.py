@@ -95,6 +95,7 @@ def ch5_5(file):
         question = child.read_nonblocking(size=13, timeout=-1).strip()
         print(question)
         operand1, operand2 = helpers.getOperands(question)
+        print(operand1, operand2)
         child.sendline(str(operand1 + operand2))
         child.read_nonblocking(size=4, timeout=-1).strip()
     child.sendline('y')
