@@ -84,7 +84,7 @@ def ch5_4(file):
     key = f'{accumulator} accumulated value\r\n'
     key += f'{positives} positives entered\r\n'
     key += f'{negatives} negatives entered\r\n'
-    key += f'{accumulator / count:.1f} is the average of the numbers\r\n'
+    key += f'{accumulator / count:.1f} is the average of the integers\r\n'
     helpers.assess(child, f'ch5_4.py', key)
 
 
