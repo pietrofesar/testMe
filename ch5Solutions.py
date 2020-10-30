@@ -48,17 +48,23 @@ def ch5_2(file):
     helpers.assess(child, f'ch5_2.py', key)
     
 
-
 def ch5_3(file):
-    key = f'{"Kilograms":13}{"Pounds":>6}\r\n'
-    kilograms = 1
-    while kilograms <= 199:
-        pounds = kilograms * 2.2
-        key += f'{kilograms:<13}{pounds:>6.1f}\r\n'
-        kilograms += 2
-    # generate python instance
+    repeat = random.randint(3, 8)
     child = pexpect.spawnu(f'python3 {file}')
-    helpers.assess(child, f'ch5_3.py', key)
+    accumulator, positives, negatives = 0, 0, 0
+    for each in range(repeat):
+        integer = random.randint(-10, 10)
+        accumulator += integer
+        if integer > 0:
+            positives += 1
+        else:
+            negatives += 1
+        child.sendline(str(integer))
+    child.sendline('0')
+    key = f'{accumulator} accumulated value\r\n'
+    key += f'{positives} positives entered\r\n'
+    key += f'{negatives} negatives entered\r\n'
+    helpers.assess(child, f'ch5_2.py', key)
     
     
 def ch5_4(file):
