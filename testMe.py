@@ -77,10 +77,10 @@ problemSets = {# chapter 1 Y. Liang
                'ch4_7.py' : ch4_7, 'ch4_8.py' : ch4_8, 'ch4_9.py' : ch4_9, 'ch4_10.py' : ch4_10, 'ch4_12.py' : ch4_12,
                'ch4_16.py' : ch4_16, 'ch4_17.py' : ch4_17, 'ch4_24.py' : ch4_24,
                # chapter 5 Y. Liang
-               'ch5_1.py' : ch5_1, 'ch5_2.py' : ch5_2, 'ch5_3.py' : ch5_3, 'ch5_4.py' : ch5_4, 'ch5_6.py' : ch5_6,
-               'ch5_7.py' : ch5_7, 'ch_8.py' : ch5_8, 'ch5_11.py' : ch5_11, 'ch5_12.py' : ch5_12, 'ch5_13.py' : ch5_13,
-               'ch5_17.py' : ch5_17, 'ch5_20A.py' : ch5_20A, 'ch5_20B.py' : ch5_20B, 'ch5_20C.py' : ch5_20C, 
-               'ch5_20D.py' : ch5_20D, 'ch5_21.py' : ch5_21,
+               'ch5_1.py' : ch5_1, 'ch5_2.py' : ch5_2, 'ch5_3.py' : ch5_3, 'ch5_4.py' : ch5_4, 'ch5_5.py : ch5_5, 
+               'ch5_6.py' : ch5_6, 'ch5_7.py' : ch5_7, 'ch_8.py' : ch5_8, 'ch5_11.py' : ch5_11, 'ch5_12.py' : ch5_12,
+               'ch5_13.py' : ch5_13,'ch5_17.py' : ch5_17, 'ch5_20A.py' : ch5_20A, 'ch5_20B.py' : ch5_20B, 
+               'ch5_20C.py' : ch5_20C, 'ch5_20D.py' : ch5_20D, 'ch5_21.py' : ch5_21,
                # chapter 6 Y. Liang
                'ch6_2.py' : ch6_2, 'ch6_3.py' : ch6_3, 'ch6_4.py' : ch6_4, 'ch6_5.py' : ch6_5, 'ch6_6.py' : ch6_6,
                'ch6_7.py' : ch6_7, 'ch6_8.py' : ch6_8, 'ch6_9.py' : ch6_9, 'ch6_10.py' : ch6_10, 'ch6_12.py' : ch6_12,
