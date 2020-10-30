@@ -89,7 +89,6 @@ def ch5_4(file):
 
 
 def ch5_5(file):
-    helpers.getOperands()
     repeat = random.randint(3, 8)
     child = pexpect.spawnu(f'python3 {file}')
     for each in range(repeat):
