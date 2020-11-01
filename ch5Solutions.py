@@ -100,17 +100,25 @@ def ch5_4(file):
 def ch5_5(file):
     repeat = random.randint(3, 8)
     child = pexpect.spawnu(f'python3 {file}')
-    for each in range(repeat):
-        question = child.read_nonblocking(size=13, timeout=-1).strip()
-        print(question)
-        operand1, operand2 = helpers.getOperands(question)
-        print(operand1, operand2)
-        child.sendline(str(operand1 + operand2))
-        child.read_nonblocking(size=4, timeout=-1).strip()
-    child.sendline('y')
-    
-    
-    helpers.assess(child, f'ch5_5.py', key)
+    #child.logfile = sys.stdout
+    try:
+        for each in range(repeat):
+            question = child.read_nonblocking(size=9, timeout=1).strip()
+            key = sum(helpers.getOperands(question))
+            print(f'{question} {key}')
+            child.sendline(str(key))
+            # flush line
+            child.readline()
+            # return to continue loop
+            child.readline()
+            child.sendline()
+            time.sleep(.01)
+        child.sendline('y')
+        print(f'{G}ch5_5.py == passed! :){X}')
+    except:
+        print(f'{R}ch5_5.py == failed! :({X}')
+    child.terminate()
+    #helpers.assess(child, f'ch5_5.py', key)
 
 
 def ch5_6(file):
@@ -125,6 +133,7 @@ def ch5_6(file):
         kilometers2 += 5
     # generate python instance
     child = pexpect.spawnu(f'python3 {file}')
+    
     helpers.assess(child, f'ch5_6.py', key)
 
 
