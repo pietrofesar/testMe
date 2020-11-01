@@ -110,31 +110,68 @@ def ch5_5(file):
             # flush line
             child.readline()
             # return to continue loop
+            child.expect_exact('correct')
+            print('correct')
             child.readline()
             child.sendline()
             time.sleep(.01)
         child.sendline('y')
         print(f'{G}ch5_5.py == passed! :){X}')
     except:
+        print(child.before)
         print(f'{R}ch5_5.py == failed! :({X}')
     child.terminate()
     #helpers.assess(child, f'ch5_5.py', key)
 
 
 def ch5_6(file):
-    key = f'{"Miles":<7}{"Kilometers":<11}| {"Kilometers":<11}{"Miles":<6}\r\n'
-    miles1 = 1
-    kilometers2 = 20
-    while miles1 <= 10:
-        kilometers1 = miles1 * 1.609 
-        miles2 = kilometers2 * .621
-        key += f'{miles1:<7}{kilometers1:<11.3f}| {kilometers2:<11}{miles2:<6.3f}\r\n'
-        miles1 += 1
-        kilometers2 += 5
-    # generate python instance
+    correct = random.randint(1, 4)
     child = pexpect.spawnu(f'python3 {file}')
+    #child.logfile = sys.stdout
+    try:
+        for each in range(correct):
+            question = child.read_nonblocking(size=9, timeout=1).strip()
+            key = sum(helpers.getOperands(question))
+            print(f'{question} {key}')
+            child.sendline(str(key))
+            # flush line
+            child.readline()
+            # return to continue loop
+            child.expect_exact('correct')
+            print('correct')
+            child.readline()
+            child.sendline()
+            time.sleep(.01)
+    except:
+        print(f'{R}ch5_6.py == failed! :({X}')
     
-    helpers.assess(child, f'ch5_6.py', key)
+    incorrect = random.randint(1, 4)
+    try:
+        for each in range(incorrect):
+            question = child.read_nonblocking(size=9, timeout=1).strip()
+            key = sum(helpers.getOperands(question))
+            while True:
+                bogus = random.randint(1, 22)
+                if bogus != key:
+                    break
+            print(f'{question} {bogus}')
+            child.sendline(str(bogus))
+            # flush line
+            child.readline()
+            # return to continue loop
+            child.expect_exact(f'incorrect it is {key}')
+            print(f'incorrect it is {key}')
+            child.readline()
+            child.sendline()
+            time.sleep(.01)
+        child.sendline('y')
+        print(f'{G}ch5_6.py == passed! :){X}')
+    except:
+        print(child.before)
+        print(f'{R}ch5_6.py == failed! :({X}')
+    child.terminate()
+    #helpers.assess(child, f'ch5_5.py', key)
+
 
 
 def ch5_7(file):
