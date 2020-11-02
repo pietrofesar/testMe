@@ -127,7 +127,7 @@ def ch5_5(file):
 def ch5_6(file):
     correct = random.randint(1, 4)
     child = pexpect.spawnu(f'python3 {file}')
-    #child.logfile = sys.stdout
+    # child.logfile = sys.stdout
     try:
         for each in range(correct):
             question = child.read_nonblocking(size=9, timeout=1).strip()
@@ -136,42 +136,47 @@ def ch5_6(file):
             child.sendline(str(key))
             # flush line
             child.readline()
-            # return to continue loop
-            child.expect_exact('correct')
-            print('correct')
-            child.readline()
-            child.sendline()
+            message = child.readline()
+            print(message)
             time.sleep(.01)
+            child.sendline()
+            child.readline()
     except:
         print(f'{R}ch5_6.py == failed! :({X}')
+        child.terminate()
+
     
     incorrect = random.randint(1, 4)
     try:
         for each in range(incorrect):
             question = child.read_nonblocking(size=9, timeout=1).strip()
-            key = sum(helpers.getOperands(question))
+            actualAnswer = sum(helpers.getOperands(question))
             while True:
                 bogus = random.randint(1, 22)
-                if bogus != key:
+                if bogus != actualAnswer:
                     break
             print(f'{question} {bogus}')
             child.sendline(str(bogus))
             # flush line
             child.readline()
-            # return to continue loop
-            child.expect_exact(f'incorrect it is {key}')
-            print(f'incorrect it is {key}')
-            child.readline()
-            child.sendline()
-            time.sleep(.01)
-        child.sendline('y')
-        print(f'{G}ch5_6.py == passed! :){X}')
+            message = child.readline()
+            print(message)
+            time.sleep(.05)
+            if each < incorrect - 1:
+                child.sendline()
+            else:
+                child.expect_exact('Exit(y)? ')
+                print('Exit(y)? y')
+                child.sendline('y')
+                child.readline()
+                break
+        key = f'{correct} out of {incorrect + correct} correct\r\n'
+        key += f'{correct / (incorrect + correct):.1%} success rate\r\n'
+        helpers.assess(child, f'ch5_6.py', key)
     except:
-        print(child.before)
+        print(f'{P}{child.before}{X}')
         print(f'{R}ch5_6.py == failed! :({X}')
-    child.terminate()
-    #helpers.assess(child, f'ch5_5.py', key)
-
+        child.terminate()
 
 
 def ch5_7(file):
