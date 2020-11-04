@@ -567,3 +567,71 @@ def lottery(file):
     case2(createTest(file))
     case3(createTest(file))
     case4(createTest(file))
+
+
+def forLoop1(file):
+    child = pexpect.spawnu(f'python3 {file}')
+    key = ''
+    for i in range(1, 11):
+        key += f'{i ** 2}\t'
+    key += '\r\n'
+    helpers.assess(child, 'forLoop1.py', key)
+    
+    
+def forLoop2(file):
+    child = pexpect.spawnu(f'python3 {file}')
+    key = ''
+    for i in range(4):
+        key += '*****\r\n'
+    helpers.assess(child, 'forLoop2.py', key)
+
+
+def forLoop3(file):
+    child = pexpect.spawnu(f'python3 {file}')
+    key = ''
+    for i in range(1, 6):
+        key += f'{"*" * i}\r\n'
+    helpers.assess(child, 'forLoop3.py', key)
+
+
+def forLoop4(file):
+    child = pexpect.spawnu(f'python3 {file}')
+    key = ''
+    for each in range(1, 8):
+        key += f'{str(each) * each}\r\n'
+    helpers.assess(child, 'forLoop4.py', key)
+    
+    
+def forLoop5(file):
+    child = pexpect.spawnu(f'python3 {file}')
+    key = ''
+    for i in range(6):
+        key += f'{"-" * (9)}|'
+    key += '\r\n'
+    helpers.assess(child, 'forLoop5.py', key)
+
+
+def forLoop6(file):
+    child = pexpect.spawnu(f'python3 {file}')
+    key = ''
+    for i in range(6):
+        for j in range(1, 11):
+            key += str(j % 10)
+    key += '\r\n'
+    helpers.assess(child, 'forLoop6.py', key)
+    
+    
+def forLoop7(file):
+    child = pexpect.spawnu(f'python3 {file}')
+    key = ''
+    number = random.randint(3, 10)
+    child.sendline(str(number))
+    intervals = 60 // number
+    for i in range(intervals):
+        key += f'{" " * (number - 1)}|'
+    key += '\r\n'
+    for i in range(intervals):
+        for j in range(1, number + 1):
+            key += str(j % number)
+    key += '\r\n'
+    helpers.assess(child, 'forLoop7.py', key)
