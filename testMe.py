@@ -102,13 +102,15 @@ problemSets = {# chapter 1 Y. Liang
                'slices.py' : slices, 'madlib.py' : madlib, 'hypotenuse.py' : hypotenuse, 'polygon.py' : polygon,
                'reportCard.py' : reportCard, 'greedy.py' : greedy, 'gradeBook.py' : gradeBook, 'temperature.py' : temperature,
                'initials.py' : initials, 'leftStack.py' : leftStack, 'rightStack.py' :  rightStack,
-               'pyramidStacks.py' : pyramidStacks, 'lottery.py' : lottery, 'validate.py' : validate}
+               'pyramidStacks.py' : pyramidStacks, 'lottery.py' : lottery, 'validate.py' : validate, 'forLoop1.py' : forLoop1,
+               'forLoop2.py' : forLoop2, 'forLoop3.py' : forLoop3, 'forLoop4.py' : forLoop4, 'forLoop5.py' : forLoop5,
+               'forLoop6.py' : forLoop6, 'forLoop7.py' : forLoop7}
     
     
 def main():
     # validate arguments
     if len(sys.argv) == 1:
-        print(f'{A}\nName: testMe\nVersion: 3.1.0.6\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
+        print(f'{A}\nName: testMe\nVersion: 3.1.0.7\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
     elif len(sys.argv) == 2:
         try:
             # find and store the file
