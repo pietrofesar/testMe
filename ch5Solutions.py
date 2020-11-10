@@ -26,159 +26,162 @@ X = '\033[0m'       # reset
 
 
 def ch5_1(file):
-    repeat = random.randint(3, 10)
-    key = ''
-    for i in range(repeat):
-        key += '"Vampire" is not a career choice\r\n'
-    child = pexpect.spawnu(f'python3 {file}')
-    child.sendline(str(repeat))
-    helpers.assess(child, f'ch5_1.py', key)
+    # generate integers for test case 1
+    integers = []
+    for i in range(random.randint(4, 11)):
+        sign = random.randint(0, 1)
+        if sign == 0:
+            integers.append(random.randint(1, 20))
+        else:
+            integers.append(random.randint(-20, -1))
+    integers.append(0)
     
+    # summarize the data for case 1
+    tally, positives, negatives, total = 0, 0, 0, 0
+    for i in integers:
+        if i != 0:
+            tally += 1
+            if i > 0:
+                positives += 1
+            else:
+                negatives +=1
+            total += i
+    average = total / tally
+    
+    # generate the output for test case 1
+    key = f'The number of positives is {positives}\r\n'
+    key += f'The number of negatives is {negatives}\r\n'
+    key += f'The total is {total}\r\n'
+    key += f'The average is {average:.2f}\r\n'
+    child = pexpect.spawnu(f'python3 {file}')
+    # send the input
+    for i in integers:
+        child.sendline(str(i))
+    # test the output
+    helpers.assess(child, f'ch5_1.py Case 1', key)
+    # test case 2
+    child = pexpect.spawnu(f'python3 {file}')
+    # send the input
+    child.sendline(str(0))
+    # correct output
+    key = 'You didn\'t enter any number\r\n'
+    # test the output
+    helpers.assess(child, f'ch5_1.py Case 2', key)
+
 
 def ch5_2(file):
-    repeat = random.randint(3, 8)
+    DELAY = .1
+    CORRECT_LENGTH = 12
+    WRONG_LENGTH = 26
+    print(f'{BY}!!!+++Time may be off and cause a failure+++!!!{X}')
+    # generate python instance
     child = pexpect.spawnu(f'python3 {file}')
-    accumulator = 0
-    for each in range(repeat):
-        while True:
-            integer = random.randint(-10, 10)
-            if integer != 0:
-                break
-        accumulator += integer
-        child.sendline(str(integer))
-    child.sendline('0')
-    key = f'{accumulator} accumulated value\r\n'
-    helpers.assess(child, f'ch5_2.py', key)
+    start = time.time()
+    for i in range(10):
+        # capture child out
+        expression = child.read_nonblocking(size=18, timeout=-1).strip()
+        # extract numbers from child out
+        numbers = helpers.getOperands(expression)
+        # determines if the response is 1 or 2 characters
+        if len(str(sum(numbers))) == 1:
+            size = 1
+        else:
+            size = 2
+        # prints the question
+        print(f'{P}{expression} {B}{str(sum(numbers))}{X}')
+        # sends the correct response
+        child.sendline(str(sum(numbers)))
+        # delays so that all text is present before flushing
+        time.sleep(DELAY)
+        # flushes the inbetween text
+        child.read_nonblocking(size=CORRECT_LENGTH + size, timeout=-1)
+
+    duration = time.time() - start -.1
+    key = f'You got 10 out of 10 correct\r\nTest time is {duration:.1f} seconds'
+    helpers.assess(child, f'ch5_2.py Case 1', key)
+    child.terminate()
     
+    print(f'{BY}!!!+++Time may be off and cause a failure+++!!!{X}')
+    # generate python instance
+    child = pexpect.spawnu(f'python3 {file}')
+    start = time.time()
+    for i in range(10):
+        # capture child out
+        expression = child.read_nonblocking(size=18, timeout=-1).strip()
+        # extract numbers from child out
+        numbers = helpers.getOperands(expression)
+        # determines if the response is 1 or 2 characters
+        if len(str(sum(numbers))) == 1:
+            size = 1
+        else:
+            size = 2
+        print(f'{P}{expression} {B}{str(sum(numbers))}{X}')
+        # sends the correct response
+        child.sendline(str(sum(numbers) + 1))
+        # delays so that all text is present before flushing
+        time.sleep(DELAY)
+        # flushes the inbetween text
+        child.read_nonblocking(size=WRONG_LENGTH + size, timeout=-1)
+
+    duration = time.time() - start
+    key = f'You got 0 out of 10 correct\r\nTest time is {duration:.1f} seconds'
+    helpers.assess(child, f'ch5_2.py Case 2', key)
+
 
 def ch5_3(file):
-    accumulator, positives, negatives = 0, 0, 0
-    repeat = random.randint(3, 8)
+    key = f'{"Kilograms":13}{"Pounds":>6}\r\n'
+    kilograms = 1
+    while kilograms <= 199:
+        pounds = kilograms * 2.2
+        key += f'{kilograms:<13}{pounds:>6.1f}\r\n'
+        kilograms += 2
+    # generate python instance
     child = pexpect.spawnu(f'python3 {file}')
-    for each in range(repeat):
-        while True:
-            integer = random.randint(-10, 10)
-            if integer != 0:
-                break
-        accumulator += integer
-        if integer > 0:
-            positives += 1
-        else:
-            negatives += 1
-        child.sendline(str(integer))
-    child.sendline('0')
-    key = f'{accumulator} accumulated value\r\n'
-    key += f'{positives} positives entered\r\n'
-    key += f'{negatives} negatives entered\r\n'
     helpers.assess(child, f'ch5_3.py', key)
     
     
 def ch5_4(file):
-    count, accumulator, positives, negatives = 0, 0, 0, 0
-    repeat = random.randint(3, 8)
+    key = f'{"Miles":7}Kilometers\r\n'
+    miles = 1
+    while miles <= 10:
+        kilometers = miles * 1.609
+        key += f'{miles:<7}{kilometers:.3f}\r\n'
+        miles += 1
+    # generate python instance
     child = pexpect.spawnu(f'python3 {file}')
-    for each in range(repeat):
-        while True:
-            integer = random.randint(-10, 10)
-            if integer != 0:
-                break
-        accumulator += integer
-        if integer > 0:
-            positives += 1
-        else:
-            negatives += 1
-        count += 1
-        child.sendline(str(integer))
-    child.sendline('0')
-    key = f'{accumulator} accumulated value\r\n'
-    key += f'{positives} positives entered\r\n'
-    key += f'{negatives} negatives entered\r\n'
-    key += f'{accumulator / count:.1f} is the average of the integers\r\n'
     helpers.assess(child, f'ch5_4.py', key)
 
 
 def ch5_5(file):
-    repeat = random.randint(3, 8)
+    key = f'{"Kilograms":<11}{"Pounds":<7}| {"Pounds":<7}{"Kilograms":<9}\r\n'
+    kilograms1 = 1
+    pounds2 = 20
+    while kilograms1 <= 199:
+        pounds1 = kilograms1 * 2.2 
+        kilograms2 = pounds2 * .4536
+        key += f'{kilograms1:<11}{pounds1:<7.1f}| {pounds2:<7}{kilograms2:<9.2f}\r\n'
+        kilograms1 += 2
+        pounds2 += 5
+    # generate python instance
     child = pexpect.spawnu(f'python3 {file}')
-    #child.logfile = sys.stdout
-    try:
-        for each in range(repeat):
-            question = child.read_nonblocking(size=9, timeout=1).strip()
-            key = sum(helpers.getOperands(question))
-            print(f'{question} {key}')
-            child.sendline(str(key))
-            # flush line
-            child.readline()
-            # return to continue loop
-            child.expect_exact('correct')
-            print('correct')
-            child.readline()
-            child.sendline()
-            time.sleep(.01)
-        child.sendline('y')
-        print(f'{G}ch5_5.py == passed! :){X}')
-    except:
-        print(child.before)
-        print(f'{R}ch5_5.py == failed! :({X}')
-    child.terminate()
-    #helpers.assess(child, f'ch5_5.py', key)
+    helpers.assess(child, f'ch5_5.py', key)
 
 
 def ch5_6(file):
-    correct = random.randint(1, 4)
+    key = f'{"Miles":<7}{"Kilometers":<11}| {"Kilometers":<11}{"Miles":<6}\r\n'
+    miles1 = 1
+    kilometers2 = 20
+    while miles1 <= 10:
+        kilometers1 = miles1 * 1.609 
+        miles2 = kilometers2 * .621
+        key += f'{miles1:<7}{kilometers1:<11.3f}| {kilometers2:<11}{miles2:<6.3f}\r\n'
+        miles1 += 1
+        kilometers2 += 5
+    # generate python instance
     child = pexpect.spawnu(f'python3 {file}')
-    # child.logfile = sys.stdout
-    try:
-        for each in range(correct):
-            question = child.read_nonblocking(size=9, timeout=1).strip()
-            key = sum(helpers.getOperands(question))
-            print(f'{question} {key}')
-            child.sendline(str(key))
-            # flush line
-            child.readline()
-            message = child.readline()
-            print(message)
-            time.sleep(.01)
-            child.sendline()
-            child.readline()
-    except:
-        print(f'{R}ch5_6.py == failed! :({X}')
-        child.terminate()
-
+    helpers.assess(child, f'ch5_6.py', key)
     
-    incorrect = random.randint(1, 4)
-    try:
-        for each in range(incorrect):
-            question = child.read_nonblocking(size=9, timeout=1).strip()
-            actualAnswer = sum(helpers.getOperands(question))
-            while True:
-                bogus = random.randint(1, 22)
-                if bogus != actualAnswer:
-                    break
-            print(f'{question} {bogus}')
-            child.sendline(str(bogus))
-            # flush line
-            child.readline()
-            message = child.readline()
-            print(message)
-            time.sleep(.05)
-            if each < incorrect - 1:
-                child.sendline()
-            else:
-                child.expect_exact('Exit(y)? ')
-                print('Exit(y)? y')
-                child.sendline('y')
-                child.readline()
-                break
-        key = f'{correct} out of {incorrect + correct} correct\r\n'
-        key += f'{correct / (incorrect + correct):.1%} success rate\r\n'
-        helpers.assess(child, f'ch5_6.py', key)
-    except:
-        print(f'{P}{child.before}{X}')
-        print(f'{R}ch5_6.py == failed! :({X}')
-        child.terminate()
-
-
+    
 def ch5_7(file):
     key = f'{"Degree":<8}{"Sin":<10}{"Cos":<6}\r\n'
     degree = 0
@@ -406,3 +409,5 @@ def ch5_21(file):
         # update counters
         spaces -= 4
     helpers.assess(child, f'ch5_21.py', key)
+    
+
