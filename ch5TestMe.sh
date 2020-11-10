@@ -15,10 +15,8 @@ A='\033[0;36m'    # aqua
 BA='\033[1;36m'   # bold aqua
 X='\033[0m'       # reset
 
-psets=('ch5_3.py' 'ch5_4.py' 'ch5_5.py' 'ch5_6.py' 'ch5_7.py' 'ch5_8.py' 'ch5_9.py' 'ch5_10.py'
-       'ch5_11.py' 'ch5_12.py' 'ch5_13.py' 'ch5_14.py' 'ch5_15.py' 'ch5_16.py' 'ch5_17.py' 
-       'ch5_18.py' 'ch5_19.py' 'ch5_20.py' 'ch5_20A.py' 'ch5_20B.py' 'ch5_20C.py' 'ch5_20D.py' '5_21.py' 'leftStack.py' 
-       'rightStack.py' 'pyramidStacks.py')
+psets=('ch5_1.py', 'ch5_2.py', 'ch5_3.py' 'ch5_4.py' 'ch5_5.py' 'ch5_6.py', 'ch5_20A.py' 'ch5_20B.py' 'ch5_20C.py', 'leftStack.py' 
+       'rightStack.py' 'pyramidStacks.py', 'forLoop1.py', 'forLoop2.py', 'forLoop3.py', 'forLoop4.py', 'forLoop5.py', 'forLoop6.py', 'forLoop7.py')
 
 echo 'updating testMe'
 updateTestMe
