@@ -569,6 +569,160 @@ def lottery(file):
     case4(createTest(file))
 
 
+def whileLoop1(file):
+    repeat = random.randint(3, 10)
+    key = ''
+    for i in range(repeat):
+        key += '"Vampire" is not a career choice\r\n'
+    child = pexpect.spawnu(f'python3 {file}')
+    child.sendline(str(repeat))
+    helpers.assess(child, f'whileLoop1.py', key)
+    
+
+def whileLoop2(file):
+    repeat = random.randint(3, 8)
+    child = pexpect.spawnu(f'python3 {file}')
+    accumulator = 0
+    for each in range(repeat):
+        while True:
+            integer = random.randint(-10, 10)
+            if integer != 0:
+                break
+        accumulator += integer
+        child.sendline(str(integer))
+    child.sendline('0')
+    key = f'{accumulator} accumulated value\r\n'
+    helpers.assess(child, f'whileLoop2.py', key)
+    
+
+def whileLoop3(file):
+    accumulator, positives, negatives = 0, 0, 0
+    repeat = random.randint(3, 8)
+    child = pexpect.spawnu(f'python3 {file}')
+    for each in range(repeat):
+        while True:
+            integer = random.randint(-10, 10)
+            if integer != 0:
+                break
+        accumulator += integer
+        if integer > 0:
+            positives += 1
+        else:
+            negatives += 1
+        child.sendline(str(integer))
+    child.sendline('0')
+    key = f'{accumulator} accumulated value\r\n'
+    key += f'{positives} positives entered\r\n'
+    key += f'{negatives} negatives entered\r\n'
+    helpers.assess(child, f'whileLoop3.py', key)
+    
+    
+def whileLoop4(file):
+    count, accumulator, positives, negatives = 0, 0, 0, 0
+    repeat = random.randint(3, 8)
+    child = pexpect.spawnu(f'python3 {file}')
+    for each in range(repeat):
+        while True:
+            integer = random.randint(-10, 10)
+            if integer != 0:
+                break
+        accumulator += integer
+        if integer > 0:
+            positives += 1
+        else:
+            negatives += 1
+        count += 1
+        child.sendline(str(integer))
+    child.sendline('0')
+    key = f'{accumulator} accumulated value\r\n'
+    key += f'{positives} positives entered\r\n'
+    key += f'{negatives} negatives entered\r\n'
+    key += f'{accumulator / count:.1f} is the average of the integers\r\n'
+    helpers.assess(child, f'whileLoop4.py', key)
+
+
+def whileLoop5(file):
+    repeat = random.randint(3, 8)
+    child = pexpect.spawnu(f'python3 {file}')
+    #child.logfile = sys.stdout
+    try:
+        for each in range(repeat):
+            question = child.read_nonblocking(size=9, timeout=1).strip()
+            key = sum(helpers.getOperands(question))
+            print(f'{question} {key}')
+            child.sendline(str(key))
+            # flush line
+            child.readline()
+            # return to continue loop
+            child.expect_exact('correct')
+            print('correct')
+            child.readline()
+            child.sendline()
+            time.sleep(.01)
+        child.sendline('y')
+        print(f'{G}whileLoop5.py == passed! :){X}')
+    except:
+        print(child.before)
+        print(f'{R}whileLoop5.py == failed! :({X}')
+    child.terminate()
+    #helpers.assess(child, f'ch5_5.py', key)
+
+
+def whileLoop6(file):
+    correct = random.randint(1, 4)
+    child = pexpect.spawnu(f'python3 {file}')
+    # child.logfile = sys.stdout
+    try:
+        for each in range(correct):
+            question = child.read_nonblocking(size=9, timeout=1).strip()
+            key = sum(helpers.getOperands(question))
+            print(f'{question} {key}')
+            child.sendline(str(key))
+            # flush line
+            child.readline()
+            message = child.readline()
+            print(message)
+            time.sleep(.01)
+            child.sendline()
+            child.readline()
+    except:
+        print(f'{R}whileLoop6.py == failed! :({X}')
+        child.terminate()
+
+    
+    incorrect = random.randint(1, 4)
+    try:
+        for each in range(incorrect):
+            question = child.read_nonblocking(size=9, timeout=1).strip()
+            actualAnswer = sum(helpers.getOperands(question))
+            while True:
+                bogus = random.randint(1, 22)
+                if bogus != actualAnswer:
+                    break
+            print(f'{question} {bogus}')
+            child.sendline(str(bogus))
+            # flush line
+            child.readline()
+            message = child.readline()
+            print(message)
+            time.sleep(.05)
+            if each < incorrect - 1:
+                child.sendline()
+            else:
+                child.expect_exact('Exit(y)? ')
+                print('Exit(y)? y')
+                child.sendline('y')
+                child.readline()
+                break
+        key = f'{correct} out of {incorrect + correct} correct\r\n'
+        key += f'{correct / (incorrect + correct):.1%} success rate\r\n'
+        helpers.assess(child, f'whileLoop6.py', key)
+    except:
+        print(f'{P}{child.before}{X}')
+        print(f'{R}whileLoop6.py == failed! :({X}')
+        child.terminate()
+
+
 def forLoop1(file):
     child = pexpect.spawnu(f'python3 {file}')
     key = ''
