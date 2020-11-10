@@ -97,14 +97,15 @@ problemSets = {# chapter 1 Y. Liang
                'green1_18.py' : green1_18, 'green2_18.py' : green2_18, 'green3_18.py' : green3_18, 'green4_18.py' : green4_18,
                'green5_18.py' : green5_18, 'green6_18.py' : green6_18, 'green7_18.py' : green7_18,
                # Learning Python and CS50
-               'average.py' : average, 'binary_search.py' : binary_search, 'birthMonth.py' :  birthMonth, 
-               'evenOdd.py' : evenOdd, 'fahrenheit.py' : fahrenheit, 'rockPaperScissors.py' : rockPaperScissors, 
-               'slices.py' : slices, 'madlib.py' : madlib, 'hypotenuse.py' : hypotenuse, 'polygon.py' : polygon,
-               'reportCard.py' : reportCard, 'greedy.py' : greedy, 'gradeBook.py' : gradeBook, 'temperature.py' : temperature,
-               'initials.py' : initials, 'leftStack.py' : leftStack, 'rightStack.py' :  rightStack,
-               'pyramidStacks.py' : pyramidStacks, 'lottery.py' : lottery, 'validate.py' : validate, 'forLoop1.py' : forLoop1,
-               'forLoop2.py' : forLoop2, 'forLoop3.py' : forLoop3, 'forLoop4.py' : forLoop4, 'forLoop5.py' : forLoop5,
-               'forLoop6.py' : forLoop6, 'forLoop7.py' : forLoop7}
+               'average.py' : average, 'binary_search.py' : binary_search, 'birthMonth.py' :  birthMonth, 'evenOdd.py' : evenOdd,
+               'fahrenheit.py' : fahrenheit, 'rockPaperScissors.py' : rockPaperScissors, 'slices.py' : slices, 'madlib.py' : madlib,
+               'hypotenuse.py' : hypotenuse, 'polygon.py' : polygon, 'reportCard.py' : reportCard, 'greedy.py' : greedy,
+               'gradeBook.py' : gradeBook, 'temperature.py' : temperature, 'initials.py' : initials, 'leftStack.py' : leftStack,
+               'rightStack.py' :  rightStack, 'pyramidStacks.py' : pyramidStacks, 'lottery.py' : lottery, 'validate.py' : validate, 
+               'whileLoop1.py' : whileLoop1, 'whileLoop2.py' : whileLoop2, 'whileLoop3.py' : whileLoop3, 'whileLoop4.py' : whileLoop4, 
+               'whileLoop5.py' : whileLoop5, 'whileLoop6.py' : whileLoop6, 'forLoop1.py' : forLoop1, 'forLoop2.py' : forLoop2,
+               'forLoop3.py' : forLoop3, 'forLoop4.py' : forLoop4, 'forLoop5.py' : forLoop5, 'forLoop6.py' : forLoop6,
+               'forLoop7.py' : forLoop7}
     
     
 def main():
