@@ -15,7 +15,7 @@ A='\033[0;36m'    # aqua
 BA='\033[1;36m'   # bold aqua
 X='\033[0m'       # reset
 
-psets=('ch5_1.py', 'ch5_2.py', 'ch5_3.py' 'ch5_4.py' 'ch5_5.py' 'ch5_6.py', 'ch5_20A.py' 'ch5_20B.py' 'ch5_20C.py', 'leftStack.py' 
+psets=('whileLoop1.py', 'whileLoop2.py', 'whileLoop3.py' 'whileLoop4.py' 'whileLoop5.py' 'whileLoop6.py', 'ch5_20A.py' 'ch5_20B.py' 'ch5_20C.py', 'leftStack.py' 
        'rightStack.py' 'pyramidStacks.py', 'forLoop1.py', 'forLoop2.py', 'forLoop3.py', 'forLoop4.py', 'forLoop5.py', 'forLoop6.py', 'forLoop7.py')
 
 echo 'updating testMe'
