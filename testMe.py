@@ -33,7 +33,7 @@ import helpers
 
 from subprocess import Popen, PIPE, STDOUT
 
-from sandboxSolutions import *
+from sandBoxSolutions import *
 from ch1Solutions import *
 from ch2Solutions import *
 from ch3Solutions import *
@@ -113,7 +113,7 @@ problemSets = {'sandbox.py' : sandbox,
 def main():
     # validate arguments
     if len(sys.argv) == 1:
-        print(f'{A}\nName: testMe\nVersion: 3.1.1.0\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
+        print(f'{A}\nName: testMe\nVersion: 3.1.1.2\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
     elif len(sys.argv) == 2:
         try:
             # find and store the file
