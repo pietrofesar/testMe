@@ -31,10 +31,24 @@ def sandbox(file):
     child = pexpect.spawnu(f'python3')
     n = random.randint(0, 10)
     m = random.randint(0, 10)
-    child.sendline(f'import {studentModule} as m')
+    child.sendline(f'import {studentModule as m}')
     child.sendline(f'print(m.testFunction(n + m))')
-    child.sendline('quit()')
-    #child.terminate()
+    answerKey = f'{n + m}'
+    try:
+        child.expect_exact(answerKey)
+        # pass
+        print(f'{BY}Output is correct!')
+        print(f'\n{G}{read}{child.before}')
+        print(f'{answerKey}')
+        print(f'\n{BY}:) {pset} == passed!{X}')
+        child.terminate
+    # fail
+    except:
+        print(f'{BY}Expected output of:\n\n{R}{answerKey}')
+        print(f'\n{BY}Actual output was:\n\n{R}{read}{child.before}')
+        print(f'\n{BY}Actual output was:\n\n{A}{read}{child.after}')
+        print(f'{BY}:( {pset} == failed{X}')
+        child.terminate
     '''
     child.sendline(str(n))
     total = 0
