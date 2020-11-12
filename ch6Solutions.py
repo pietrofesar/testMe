@@ -26,6 +26,8 @@ X = '\033[0m'       # reset
 
 
 def ch6_2(file):
+    testMePath, studentPath, studentModule = helpers.functionTester(file)
+    print(testMePath, studentPath, studentModule)
     child = pexpect.spawnu(f'python3 {file}')
     n = random.randint(0, 9999)
     
@@ -37,7 +39,6 @@ def ch6_2(file):
     total += n
     key = f'The sum of the numbers is {total}'
     helpers.assess(child, "ch6_2.py", key)
-
 
 def ch6_3(file):
     child = pexpect.spawnu(f'python3 {file}')
