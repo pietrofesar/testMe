@@ -99,7 +99,7 @@ def getOperands(theString):
 # helper for functions
 def functionTester(studentFile):
     testMePath = os.getcwd()
-    studentModule = studentFile[studentFile.rfind('/'):studentFile.rfind('.')]
+    studentModule = studentFile[studentFile.rfind('/') + 1:studentFile.rfind('.')]
     i = studentFile.rfind('/')
     studentPath = studentFile[:i]
     return testMePath, studentPath, studentModule
