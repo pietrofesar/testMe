@@ -96,10 +96,10 @@ def getOperands(theString):
     operands = [int(i) for i in theString.split() if i.isdigit()]
     return operands
     
-# helper for functions, put in helpers file
+# helper for functions
 def functionTester(studentFile):
     testMePath = os.getcwd()
-    studentModule = studentFile[:studentFile.find('.')]
+    studentModule = studentFile[studentFile.rfind('/'):studentFile.rfind('.')]
     i = studentFile.rfind('/')
     studentPath = studentFile[:i]
     return testMePath, studentPath, studentModule
