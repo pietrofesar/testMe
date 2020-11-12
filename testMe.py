@@ -33,7 +33,7 @@ import helpers
 
 from subprocess import Popen, PIPE, STDOUT
 
-from sanboxSolutions import *
+from sandboxSolutions import *
 from ch1Solutions import *
 from ch2Solutions import *
 from ch3Solutions import *
