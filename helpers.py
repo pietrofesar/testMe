@@ -81,11 +81,13 @@ def assess(child, pset, answerKey, read=""):
     except:
         print(f'{BY}Expected output of:\n\n{R}{answerKey}')
         print(f'\n{BY}Actual output was:\n\n{R}{read}{child.before}')
+        print(f'\n{BY}Actual output was:\n\n{A}{read}{child.after}')
         print(f'{BY}:( {pset} == failed{X}')
         child.terminate
 
 
-def getOperands(theString):   
+def getOperands(theString): 
+    #print(f'in getOperands {Y}{theString}{X}')
     while len(theString) != 0 and not theString[0].isdigit():
         theString = theString[1:]
     while len(theString) != 0 and not theString[-1].isdigit():
@@ -93,3 +95,11 @@ def getOperands(theString):
         print()
     operands = [int(i) for i in theString.split() if i.isdigit()]
     return operands
+    
+def functionTester(_studentFile):
+    testMePath = os.getcwd()
+    studentFile = findInSubdirectory(_studentFile)
+    studentModule = studentFile[:studentFile.find('.')]
+    i = studentFile.rfind('/')
+    studentPath = studentFile[:i]
+    return testMePath, studentPath, studentModule
