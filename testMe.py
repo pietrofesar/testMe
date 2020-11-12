@@ -61,7 +61,8 @@ A = '\033[0;36m'    # aqua
 BA = '\033[1;36m'   # bold aqua
 X = '\033[0m'       # reset
 
-problemSets = {# chapter 1 Y. Liang
+problemSets = {'sandbox.py' : sandbox,
+               # chapter 1 Y. Liang
                'ch1_1.py' : ch1_1, 'ch1_2.py' : ch1_2, 'ch1_3.py' : ch1_3, 'ch1_4.py' : ch1_4, 'ch1_5.py' : ch1_5, 
                'ch1_6.py' : ch1_6,
                # chapter 2 Y. Liang
