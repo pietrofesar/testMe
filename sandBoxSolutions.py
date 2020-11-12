@@ -34,7 +34,7 @@ def sandbox(file):
     child.sendline(f'import {studentModule} as m')
     child.sendline(f'print(m.testFunction(n + m))')
     child.sendline('quit()')
-    child.terminate()
+    #child.terminate()
     '''
     child.sendline(str(n))
     total = 0
