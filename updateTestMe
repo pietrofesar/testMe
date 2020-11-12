@@ -26,7 +26,7 @@ X='\033[0m'       # reset
 echo -e "${Y}Collecting and overwriting testMe Python autograder utility.${X}"
 sudo rm -r /usr/bin/testMeFolder
 sudo mkdir /usr/bin/testMeFolder
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py -O /usr/bin/testMeFolder/SandBoxSolutions.py
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py -O /usr/bin/testMeFolder/sandBoxSolutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch10Solutions.py -O /usr/bin/testMeFolder/ch10Solutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch1Solutions.py -O /usr/bin/testMeFolder/ch1Solutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch2Solutions.py -O /usr/bin/testMeFolder/ch2Solutions.py
