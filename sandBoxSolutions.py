@@ -31,8 +31,8 @@ def sandbox(file):
     child = pexpect.spawnu(f'python3')
     n = random.randint(0, 10)
     m = random.randint(0, 10)
-    child.sendline(f'import {studentModule} as m')
-    child.sendline(f'print(m.testFunction(n, m))')
+    child.sendline(f'import {studentModule}')
+    child.sendline(f'print(studentTestModule.testFunction(n, m))')
     answerKey = f'{n + m}'
     try:
         child.expect_exact(answerKey)
