@@ -54,6 +54,7 @@ echo -e "${Y}Installing the Python autograder testMe source file${X}"
 # make folder for files
 sudo mkdir /usr/bin/testMeFolder
 # download source files
+sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py -O /usr/bin/testMeFolder/sandBoxSolutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch10Solutions.py -O /usr/bin/testMeFolder/ch10Solutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch1Solutions.py -O /usr/bin/testMeFolder/ch1Solutions.py
 sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch2Solutions.py -O /usr/bin/testMeFolder/ch2Solutions.py
