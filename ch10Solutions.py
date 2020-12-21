@@ -33,15 +33,15 @@ def ch10_1(file):
     answer_key = ''
     for i in range(len(students)):
         if students[i] >= best - 10:
-            answer_key+= f'Student {i} score is {students[i]} and grade is A\r\n'
+            answer_key+= f'Student score is {students[i]} and grade is A\r\n'
         elif students[i] >= best - 20:
-            answer_key += f'Student {i} score is {students[i]} and grade is B\r\n'
+            answer_key += f'Student score is {students[i]} and grade is B\r\n'
         elif students[i] >= best - 30:
-            answer_key += f'Student {i} score is {students[i]} and grade is C\r\n'
+            answer_key += f'Student score is {students[i]} and grade is C\r\n'
         elif students[i] >= best - 40:
-            answer_key += f'Student {i} score is {students[i]} and grade is D\r\n'
+            answer_key += f'Student score is {students[i]} and grade is D\r\n'
         else:
-            answer_key += f'Student {i} score is {students[i]} and grade is F\r\n'
+            answer_key += f'Student score is {students[i]} and grade is F\r\n'
     
     child = pexpect.spawnu(f'python3 {file}')
     child.sendline(' '.join(str(n) for n in students))
