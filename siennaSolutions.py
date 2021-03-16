@@ -337,6 +337,7 @@ def green2_19(file):
     print(endUnit)
     
     child = pexpect.spawnu(f'python3 {file}')
+    print(f'{quantity} {startUnit} {endUnit}')
     child.sendline(f'{quantity} {startUnit} {endUnit}')
     
     if measurementTable.index(startUnit) > measurementTable.index(endUnit):
