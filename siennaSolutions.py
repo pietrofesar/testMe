@@ -357,7 +357,7 @@ def green2_19(file):
             else:
                 quantity //= mathTable[index]
             index += 1
-    
+    print(child.before)
     helpers.assess(child, f'green2_19.py', quantity)
     
 
