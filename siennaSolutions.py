@@ -309,3 +309,64 @@ def green7_18(file):
     for each in test_cards:
         child.sendline(each)
     helpers.assess(child, f'green7_18.py', answer_key)
+    
+
+def green1_19(file):
+    
+    dividend = random.randint(2, 50)
+    divisor = random.randint(2, 9)
+    key = f'{dividend} {divisor} {dividend // divisor} {dividend % divisor}'
+    
+    child = pexpect.spawnu(f'python3 {file}')
+    child.sendline(f'{dividend}')
+    child.sendline(f'{divisor}')
+    helpers.assess(child, f'green1_19.py', key)
+
+def green2_19(file):
+    child = pexpect.spawnu(f'python3 {file}')
+    mathTable = [3, 16, 2, 2, 4]
+    measurementTable = ['TEASPOONS', 'TABLESPOONS', 'CUPS', 'PINTS', 'QUARTS', 'GALLONS']
+    quantity = random.randint(1, 20)
+    startUnit = random.choice(measurementTable)
+    endUnit = ''
+    while True:
+        endUnit = random.choice(measurementTable)
+        if endUnit != startUnit:
+            break
+        
+    child = pexpect.spawnu(f'python3 {file}')
+    child.sendline(f'{quantity} {startUnit} {endUnit}')
+    
+    if measurementTable.index(startUnit) > measurementTable.index(endUnit):
+        test = True
+        table = [endUnit, startUnit]
+    else:
+        test = False
+        table = [startUnit, endUnit]
+    
+    start, end = table[0], table[1]
+    
+    index = measurementTable.index(start)
+    
+    if measurementTable.index(start) < measurementTable.index(end):
+        while index != measurementTable.index(end):
+            if test:
+                quantity *= mathTable[index]
+            else:
+                quantity //= mathTable[index]
+            index += 1
+    
+    helpers.assess(child, f'green2_19.py', quantity)
+
+def green3_19(file):
+    integer = random.randint(15, 99)
+    child = pexpect.spawnu(f'python3 {file}')
+    pexpect.sendline(str(integer))
+    key = ''
+    remainders = []
+    while integer != 0:
+        remainders.insert(0, str(integer % 2))
+        key += f'{integer // 2} {integer % 2}\r\n'
+        integer //= 2
+    key += ''.join(remainders)
+    helpers.assess(child, f'green3_19.py', key)
