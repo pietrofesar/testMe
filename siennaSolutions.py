@@ -323,17 +323,19 @@ def green1_19(file):
     helpers.assess(child, f'green1_19.py', key)
 
 def green2_19(file):
-    child = pexpect.spawnu(f'python3 {file}')
     mathTable = [3, 16, 2, 2, 4]
     measurementTable = ['TEASPOONS', 'TABLESPOONS', 'CUPS', 'PINTS', 'QUARTS', 'GALLONS']
-    quantity = random.randint(1, 20)
+    quantity = random.randint(1, 50000)
+    print(quantity)
     startUnit = random.choice(measurementTable)
+    print(startUnit)
     endUnit = ''
     while True:
         endUnit = random.choice(measurementTable)
         if endUnit != startUnit:
             break
-        
+    print(endUnit)
+    
     child = pexpect.spawnu(f'python3 {file}')
     child.sendline(f'{quantity} {startUnit} {endUnit}')
     
@@ -357,6 +359,7 @@ def green2_19(file):
             index += 1
     
     helpers.assess(child, f'green2_19.py', quantity)
+    
 
 def green3_19(file):
     integer = random.randint(15, 99)
