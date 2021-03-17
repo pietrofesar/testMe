@@ -374,3 +374,20 @@ def green3_19(file):
         integer //= 2
     key += ''.join(remainders)
     helpers.assess(child, f'green3_19.py', key)
+
+    
+ def green4_19(file): 
+    child = pexpect.spawnu(f'python3 {file}')
+    integer = random.randint(1, 1000000)
+    child.sendline(str(integer))
+    steps = 0
+    while 1 != integer != 89:
+        length = len(str(integer))
+        total = 0
+        for i in range(length):
+            total += ((integer % 10) ** 2)
+            integer //= 10
+        integer = total
+        steps += 1
+    key = f'{integer} {steps}'
+    helpers.assess(child, 'g4_2018.py', key)
