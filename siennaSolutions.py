@@ -394,62 +394,62 @@ def green4_19(file):
    
 
 def green5_19(file):
-def checkBalanced(word, start1, end1, start2, end2):
-    if leftCount > rightCount:
-        return 'LEFT UNBALANCED'
-    elif leftCount < rightCount:
-        return 'RIGHT UNBALANCED'
-    else:
+    def checkBalanced(word, start1, end1, start2, end2):
+        if leftCount > rightCount:
+            return 'LEFT UNBALANCED'
+        elif leftCount < rightCount:
+            return 'RIGHT UNBALANCED'
+        else:
+            for each in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+                if word[start1 : end1].count(each) != word[start2 : end2].count(each):
+                    return 'BALANCED'
+        return 'PERFECTLY BALANCED'
+
+
+    # generate keys
+    keys = []
+    alpha = [alpha for alpha in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+
+    random.shuffle(alpha)
+    mul1 = random.randint(1, 4)
+    mul2 = random.randint(1, 4)
+
+    # even perfectly balanced
+    keys.append((alpha[0] * mul1 + alpha[1] * mul2) * 2)
+    # odd perfectly balanced
+    random.shuffle(alpha)
+    keys.append(alpha[0] * mul1 + alpha[1] * mul2 + alpha[2] + alpha[0] * mul1 + alpha[1] * mul2)
+    # even balanced
+    random.shuffle(alpha)
+    keys.append(alpha[0] * mul1 + alpha[1] * mul2 + alpha[2] * mul2 + alpha[3] * mul1)
+    # odd balanced
+    random.shuffle(alpha)
+    keys.append(alpha[0] * mul1 + alpha[1] * mul2 + alpha[2] + alpha[3] * mul2 + alpha[4] * mul1)
+    # left unbalanced
+    random.shuffle(alpha)
+    keys.append(alpha[0] + alpha[1] * 3 + alpha[2] + alpha[3] * 3 + alpha[1] * 4 + alpha[4] * 4)
+    # right unbalanced
+    random.shuffle(alpha)
+    keys.append(alpha[0] * 2 + alpha[1] * 5 + alpha[2] + alpha[3] * 3 + alpha[1] * 2 + alpha[4])
+
+    for each in keys:
+        child = pexpect.spawnu(f'python3 {file}')
+        child.sendline(each)
+        word = each
+        start1 = 0
+        end1 = len(word) // 2
+        end2 = len(word)
+        if len(word) % 2 == 0:
+            start2 = len(word) // 2
+        else:
+            start2 = len(word) // 2 + 1
+        leftCount, rightCount = 0, 0
         for each in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
-            if word[start1 : end1].count(each) != word[start2 : end2].count(each):
-                return 'BALANCED'
-    return 'PERFECTLY BALANCED'
-
-
-# generate keys
-keys = []
-alpha = [alpha for alpha in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
-
-random.shuffle(alpha)
-mul1 = random.randint(1, 4)
-mul2 = random.randint(1, 4)
-
-# even perfectly balanced
-keys.append((alpha[0] * mul1 + alpha[1] * mul2) * 2)
-# odd perfectly balanced
-random.shuffle(alpha)
-keys.append(alpha[0] * mul1 + alpha[1] * mul2 + alpha[2] + alpha[0] * mul1 + alpha[1] * mul2)
-# even balanced
-random.shuffle(alpha)
-keys.append(alpha[0] * mul1 + alpha[1] * mul2 + alpha[2] * mul2 + alpha[3] * mul1)
-# odd balanced
-random.shuffle(alpha)
-keys.append(alpha[0] * mul1 + alpha[1] * mul2 + alpha[2] + alpha[3] * mul2 + alpha[4] * mul1)
-# left unbalanced
-random.shuffle(alpha)
-keys.append(alpha[0] + alpha[1] * 3 + alpha[2] + alpha[3] * 3 + alpha[1] * 4 + alpha[4] * 4)
-# right unbalanced
-random.shuffle(alpha)
-keys.append(alpha[0] * 2 + alpha[1] * 5 + alpha[2] + alpha[3] * 3 + alpha[1] * 2 + alpha[4])
-
-for each in keys:
-    child = pexpect.spawnu(f'python3 {file}')
-    child.sendline(each)
-    word = each
-    start1 = 0
-    end1 = len(word) // 2
-    end2 = len(word)
-    if len(word) % 2 == 0:
-        start2 = len(word) // 2
-    else:
-        start2 = len(word) // 2 + 1
-    leftCount, rightCount = 0, 0
-    for each in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
-        if word[start1 : end1].count(each) > word[start2 : end2].count(each):
-            leftCount += 1
-        if word[start1 : end1].count(each) < word[start2 : end2].count(each):
-            rightCount += 1
-    key = checkBalanced(word, start1, end1, start2, end2)
-    helpers.assess(child, 'green5_19.py', key)
+            if word[start1 : end1].count(each) > word[start2 : end2].count(each):
+                leftCount += 1
+            if word[start1 : end1].count(each) < word[start2 : end2].count(each):
+                rightCount += 1
+        key = checkBalanced(word, start1, end1, start2, end2)
+        helpers.assess(child, 'green5_19.py', key)
 
 
