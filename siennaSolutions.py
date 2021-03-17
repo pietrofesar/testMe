@@ -365,7 +365,7 @@ def green2_19(file):
 def green3_19(file):
     integer = random.randint(15, 99)
     child = pexpect.spawnu(f'python3 {file}')
-    pexpect.sendline(str(integer))
+    child.sendline(str(integer))
     key = ''
     remainders = []
     while integer != 0:
