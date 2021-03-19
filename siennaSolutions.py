@@ -452,4 +452,14 @@ def green5_19(file):
         key = checkBalanced(word, start1, end1, start2, end2)
         helpers.assess(child, 'green5_19.py', key)
 
+        
+def green6_19(file):
+    testData = [4, 6, 'FCPAPJ', 'LAAMRC', 'QJIEDT', 'KIDRYO', 4,
+                'JELLY', 'FAIR', 'PAID', 'DRY']
+    key = 'JELLY NOT FOUND\r\nFAIR FOUND\r\nPAID FOUND\r\nDRY FOUND\r\n'
+    child = pexpect.spawnu(f'python3 {file}') 
+    child.sendline(f'{testData[0]} {testData[1]}')
+    for i in range(2, len(testData)):
+        child.sendline(f'{testData[i]}')
+    helpers.assess(child, 'green6_2019.py', key)
 
