@@ -99,6 +99,7 @@ problemSets = {'sandbox.py' : sandbox,
                'green1_18.py' : green1_18, 'green2_18.py' : green2_18, 'green3_18.py' : green3_18, 'green4_18.py' : green4_18,
                'green5_18.py' : green5_18, 'green6_18.py' : green6_18, 'green7_18.py' : green7_18, 'green1_19.py' : green1_19, 
                'green2_19.py' : green2_19, 'green3_19.py' : green3_19, 'green4_19.py' : green4_19, 'green5_19.py' : green5_19,
+               'green6_19.py': green6_19,
                # Learning Python and CS50
                'average.py' : average, 'binary_search.py' : binary_search, 'birthMonth.py' :  birthMonth, 'evenOdd.py' : evenOdd,
                'fahrenheit.py' : fahrenheit, 'rockPaperScissors.py' : rockPaperScissors, 'slices.py' : slices, 'madlib.py' : madlib,
@@ -114,7 +115,7 @@ problemSets = {'sandbox.py' : sandbox,
 def main():
     # validate arguments
     if len(sys.argv) == 1:
-        print(f'{A}\nName: testMe\nVersion: 3.2.1.0\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
+        print(f'{A}\nName: testMe\nVersion: 3.2.2.0\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
     elif len(sys.argv) == 2:
         try:
             # find and store the file
