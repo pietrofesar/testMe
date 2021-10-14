@@ -43,5 +43,7 @@ wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.p
 
 rm updateTestMe.sh 
 wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/updateTestMe.sh -O updateTestMe.sh
+rm testMe.sh 
+wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.sh -O testMe.sh
 
 bash testMe.sh
