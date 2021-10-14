@@ -41,7 +41,7 @@ wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/learning
 wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/siennaSolutions.py -O testMe/siennaSolutions.py
 wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.py -O testMe/testMe.py
 
-# rm updateTestMe.sh 
-# wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/updateTestMe -O updateTestMe.sh
+rm updateTestMe.sh 
+wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/updateTestMe.sh -O updateTestMe.sh
 
 bash testMe.sh
