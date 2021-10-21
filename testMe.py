@@ -30,9 +30,10 @@ import random
 import math
 import time
 import helpers
-
+from pathlib import Path
 from subprocess import Popen, PIPE, STDOUT
 
+# import the solutions
 from sandBoxSolutions import *
 from ch1Solutions import *
 from ch2Solutions import *
@@ -46,46 +47,50 @@ from ch10Solutions import *
 from learningPythonSolutions import *
 from siennaSolutions import *
 
-
 # text color constants
-R = '\033[0;31m'    # red
-BR = '\033[1;31m'   # bold red
-G = '\033[0;32m'    # green
-BG = '\033[1;32m'   # bold green
-Y = '\033[0;33m'    # yellow
-BY = '\033[1;33m'   # bold yellow
-B = '\033[0;34m'    # blue
-BB = '\033[1;34m'   # bold blue
-P = '\033[0;35m'    # purple
-BP = '\033[1;35m'   # bold purple
-A = '\033[0;36m'    # aqua
-BA = '\033[1;36m'   # bold aqua
-X = '\033[0m'       # reset
+R = '\033[0;31m'  # red
+BR = '\033[1;31m'  # bold red
+G = '\033[0;32m'  # green
+BG = '\033[1;32m'  # bold green
+Y = '\033[0;33m'  # yellow
+BY = '\033[1;33m'  # bold yellow
+B = '\033[0;34m'  # blue
+BB = '\033[1;34m'  # bold blue
+P = '\033[0;35m'  # purple
+BP = '\033[1;35m'  # bold purple
+A = '\033[0;36m'  # aqua
+BA = '\033[1;36m'  # bold aqua
+X = '\033[0m'  # reset
+
 
 def main():
     # validate arguments
     if len(sys.argv) == 1:
-        print(f'{A}\nName: testMe\nVersion: 4.0.0.0\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n')
-    elif len(sys.argv) == 2:
-        try:
-            # find and store the file
-            studentFile = helpers.findInSubdirectory(sys.argv[1])     
-            if studentFile != None:
-                for i in studentFile.split('/'):
-                    if i.endswith('.py'):
-                        pset = i.strip('.py')
-                try:
-                  eval(pset + "(studentFile)")
-                except:
-                    print(f'{Y}No solution available for {i}{X}')
-                    sys.exit()
-            else:
-                print(f'{BR}ERROR{R} file does not exist{X}')
-           
-        except IOError as e:
-            print(f'{BR}ERROR\n{Y}{sys.argv[1]}{X} doesn\'t exist or is incorrectly named')
-            
+        print(
+            f'{A}\nName: testMe\nVersion: 4.0.0.0\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n'
+        )
+    # wrong number of arguments - not working
+    elif len(sys.argv) != 2:
+      print(f'{R}Wrong amount of arguments entered{X}')
+    # incorrectly spelled
+    elif helpers.findInSubdirectory(sys.argv[1]) == None:
+      print(f'{R}File is mispelled or does not exist{X}')
+    # solution doesn't exist
+    
+    # file is empty
+    elif os.path.getsize(Path(helpers.findInSubdirectory(sys.argv[1]))) == 0:
+      print(f'{R}Your file exists but is empty{X}')
+    # store pset value
     else:
-       print(f'{R}Wrong amount of arguments given{X}')
-
+      studentFile = helpers.findInSubdirectory(sys.argv[1])  
+      # get the pset for function call
+      for i in studentFile.split('/'):
+        if i.endswith('.py'):
+          pset = i.strip('.py')
+      # call the solution
+      try:
+        eval(pset + '(studentFile)')
+      except:
+        print(f'{BR}Fatal Error\n{R}Run your submission in the shell and look for exceptions\nLook in your code for highlighted errors too\n{X}')
+        sys.exit()
 main()
