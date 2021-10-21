@@ -35,7 +35,8 @@ def findInSubdirectory(filename, subdirectory=''):
     for root, dirs, names in os.walk(path):
         if filename in names:
             return os.path.join(root, filename)
-    #raise 'File not found'
+    # file does not exist
+    return None
     
 def find_nth(haystack, needle, n):
     """
@@ -70,20 +71,20 @@ def assess(child, pset, answerKey, read=""):
     """
     # check the correctness of the submission
     try:
-        child.expect_exact(answerKey)
-        # pass
-        print(f'{BY}Output is correct!')
-        print(f'\n{G}{read}{child.before}')
-        print(f'{answerKey}')
-        print(f'\n{BY}:) {pset} == passed!{X}')
-        child.terminate
+      child.expect_exact(answerKey)
+      # pass
+      print(f'{BY}Output is correct!')
+      print(f'\n{G}{read}{child.before}')
+      print(f'{answerKey}')
+      print(f'\n{BY}:) {pset} == passed!{X}')
+      child.terminate
     # fail
     except:
-        print(f'{BY}Expected output of:\n\n{R}{answerKey}')
-        print(f'\n{BY}Actual output was:\n\n{R}{read}{child.before}')
-        print(f'\n{BY}Actual output was:\n\n{A}{read}{child.after}')
-        print(f'{BY}:( {pset} == failed{X}')
-        child.terminate
+      print(f'{BY}Expected output of:\n\n{R}{answerKey}')
+      print(f'\n{BY}Actual output was:\n\n{R}{read}{child.before}')
+      print(f'\n{BY}Actual output was:\n\n{A}{read}{child.after}')
+      print(f'{BY}:( {pset} == failed{X}')
+      child.terminate
 
 
 def getOperands(theString): 
