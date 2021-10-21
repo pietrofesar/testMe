@@ -64,6 +64,6 @@ def ch1_5(file):
 
 def ch1_6(file):
     child = pexpect.spawnu(f'python3 {file}')
-    key = 'area is {0:.2f}\r\nperimeter is {1:.2f}\r\n'.format(4.5 * 7.9, (2 * 4.5 + 2 * 7.9))
+    key = f'area is {4.5 * 7.9}\r\nperimeter is {4.5*2 + 7.9 * 2}'
     # check the correctness of the submission
     helpers.assess(child, "ch1_6.py", key)
