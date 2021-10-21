@@ -67,7 +67,7 @@ def main():
     # validate arguments
     if len(sys.argv) == 1:
         print(
-            f'{A}\nName: testMe\nVersion: 4.0.0.1\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n'
+            f'{A}\nName: testMe\nVersion: 4.0.1\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com{X}\n'
         )
     # wrong number of arguments - not working
     elif len(sys.argv) != 2:
