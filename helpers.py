@@ -82,7 +82,7 @@ def assess(child, pset, answerKey, read=""):
     except:
       print(f'{BY}Expected output of:\n\n{R}{answerKey}')
       print(f'\n{BY}Actual output was:\n\n{R}{read}{child.before}')
-      print(f'\n{BY}Actual output was:\n\n{A}{read}{child.after}')
+      # print(f'\n{BY}Actual output was:\n\n{A}{read}{child.after}')
       print(f'{BY}:( {pset} == failed{X}')
       child.terminate
 
