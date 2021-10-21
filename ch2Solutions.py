@@ -27,8 +27,9 @@ X = '\033[0m'       # reset
 
 def ch2_1(file):
     child = pexpect.spawnu(f'python3 {file}')
-    key = '24 Celsius is 75.2 Fahrenheit'
-    child.sendline('24')
+    temp = random.randint(0, 100)
+    key = f'{temp} Celsius is {(9/5) * temp + 32} Fahrenheit'
+    child.sendline('f{(9/5) * temp + 32}')
     # check the correctness of the submission
     helpers.assess(child, "ch2_1.py", key)
     
