@@ -77,6 +77,7 @@ def ch4_2(file):
   child = pexpect.spawnu(f'python3 {file}')
   message = child.read_nonblocking(size=20, timeout=-1).strip()
   operands, total = getOperands()
+
   child.sendline(str(total))
   key = f'{operands[0]} + {operands[1]} + {operands[2]} = {total} is True'
   helpers.assess(child, 'ch4_2.py: case 1', key, f'{message} ')
