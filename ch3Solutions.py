@@ -60,7 +60,7 @@ def ch3_4(file):
     child.sendline(str(s))
     area = (5 * s**2) / (4 * math.tan(math.radians(math.pi / 5)))
 
-    key = f"The area of a pentagon is {area:.2f}"
+    key = f"The area of the pentagon is {area:.2f}"
     helpers.assess(child, "ch3_4.py", key)
     
 
