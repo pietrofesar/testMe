@@ -387,9 +387,9 @@ def ch4_17(file):
         else:
             if player == 2:
                 if computer == 1:
-                    return 'player wins - scissors beat paper'
+                    return 'player wins - scissor beat paper'
                 else:
-                    return 'computer wins - rock beats scissors'
+                    return 'computer wins - rock beats scissor'
 
     def testKey(computerOutput, key, case):
         if computerOutput == key:
