@@ -316,16 +316,16 @@ def temperature(file):
     child = pexpect.spawnu(f'python3 {file}')
     child.sendline('F')
     child.sendline(str(tempC))
-    key = f'{tempC * (9/5) + 32:.1f}'
+    key = f'{tempC * (9/5) + 32:.1f}\u00B0F'
     helpers.assess(child, 'temperature.py case: 1', key)
     # check conversion to Celsius
     tempF = random.randint(32, 212)
     child = pexpect.spawnu(f'python3 {file}')
     child.sendline('C')
     child.sendline(str(tempF))
-    key = f'{(tempF - 32) * (5/9):.1f}'
+    key = f'{(tempF - 32) * (5/9):.1f}\u00B0C'
     helpers.assess(child, 'temperature.py case: 2', key)
-    
+        
 
 def initials(file): # updated
     """initials.py autograder """
