@@ -387,7 +387,7 @@ def ch4_17(file):
         else:
             if player == 2:
                 if computer == 1:
-                    return 'player wins - scissor beat paper'
+                    return 'player wins - scissor beats paper'
                 else:
                     return 'computer wins - rock beats scissor'
 
