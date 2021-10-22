@@ -40,7 +40,7 @@ def ch4_1(file):
     a, b, c, discriminant = genCoefficients()
     while discriminant >= 0:
         a, b, c, discriminant = genCoefficients()
-    key = "The equation has no real roots"
+    key = "no real roots"
     child = pexpect.spawnu(f'python3 {file}')
     child.sendline(f"{a}, {b}, {c}")
     helpers.assess(child, "ch4_1.py case 1", key)
@@ -57,8 +57,8 @@ def ch4_1(file):
     # test case 3: d > 0, two roots
     while discriminant <= 0:
         a, b, c, discriminant = genCoefficients()
-    pRoot = (-b + math.pow(discriminant, .5)) / (2 * a)
-    nRoot = (-b - math.pow(discriminant, .5)) / (2 * a)
+    pRoot = (-b + math.sqrt(discriminant)) / (2 * a)
+    nRoot = (-b - math.sqrt(discriminant)) / (2 * a)
     key = f"The roots are {pRoot:.2f} and {nRoot:.2f}"
     child = pexpect.spawnu(f'python3 {file}')
     child.sendline(f"{a}, {b}, {c}")
