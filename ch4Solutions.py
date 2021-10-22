@@ -433,8 +433,10 @@ def ch4_24(file):
     cards = createDeck()
     child = pexpect.spawnu(f'python3 {file}')
     inputOutput = child.read_nonblocking(size=5, timeout=-1).strip()
-    print(f'{Y}{inputOutput}{X}')
+    
     if inputOutput in cards:
+        print(f'{G}{inputOutput}{X}')
         print(f'{G}:) ch4_24.py == passed!{X}')
     else:
+        print(f'{R}{inputOutput}{X}')
         print(f'{R}:( ch4_24.py failed{X}')
