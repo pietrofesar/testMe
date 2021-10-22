@@ -360,7 +360,7 @@ def ch4_17(file):
     def testChild(player, file):
         child = pexpect.spawnu(f'python3 {file}')
         child.sendline(str(player))
-        child.expect('computer is .*', timeout=-1)
+        child.expect('computer picked .*', timeout=-1)
         output = (child.after).split('\r\n')
         # Extract computer value
         computer = helpers.getOperands(output[0])[0]
@@ -371,25 +371,25 @@ def ch4_17(file):
 
     def checkGame(player, computer):
         if computer == player:
-            return 'it\'s a tie'
+            return 'draw'
         # player is rock
         elif player == 0:
             if computer == 2:
-                return 'rock beats scissors - you win'
+                return 'player wins - rock beats scissor'
             else:
-                return 'paper beats rock - you lose'
+                return 'computer wins - paper beats rock'
         # player is paper
         elif player == 1:
             if computer == 0:
-                return 'paper beats rock - you win'
+                return 'player wins - paper beats rock'
             else:
-                return 'scissor beats paper - you lose'
+                return 'computer wins - scissor beats paper'
         else:
             if player == 2:
                 if computer == 1:
-                    return 'scissors beat paper - you win'
+                    return 'player wins - scissors beat paper'
                 else:
-                    return 'rock beats scissors - you lose'
+                    return 'computer wins - rock beats scissors'
 
     def testKey(computerOutput, key, case):
         if computerOutput == key:
