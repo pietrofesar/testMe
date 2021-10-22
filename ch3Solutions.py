@@ -58,7 +58,7 @@ def ch3_4(file):
     s = round(random.uniform(15, 1), 1)
 
     child.sendline(str(s))
-    area = (5 * s**2) / (4 * math.tan((math.pi / 5)))
+    area = (5 * s**2) / (4 * math.tan(math.radians(math.pi / 5)))
 
     key = f"The area of a pentagon is {area:.2f}"
     helpers.assess(child, "ch3_4.py", key)
