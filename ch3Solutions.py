@@ -48,6 +48,8 @@ def ch3_2(file):
         data[i] = math.radians(data[i])
   
     d = 6371.01 * math.acos(math.sin(data[0]) * math.sin(data[2]) + math.cos(data[0]) * math.cos(data[2]) * math.cos(data[1] - data[3]))
+    d = 6371.01 * math.acos(math.sin(math.radians(data[0])) * math.sin(math.radians(data[2]))) + math.cos(math.radians(data[0])) * math.cos(math.radians(data[2])) * mtah.cos(math.radians(data[1] - data[3]))
+
 
     key = f"The distance between two points is {d:.4f} km"
     helpers.assess(child, "ch3_2.py", key)
