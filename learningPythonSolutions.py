@@ -267,7 +267,7 @@ def evenOdd(file):
         child.sendline('{}'.format(test_data[i][0]))
         # check the correctness of submission
         try:
-            child.expect_exact('{} is an {} number.'.format(test_data[i][0], test_data[i][1]))
+            child.expect_exact('{} is {}'.format(test_data[i][0], test_data[i][1]))
             # pass
             print('{}{}'.format(G, child.match))
             ok += 1
