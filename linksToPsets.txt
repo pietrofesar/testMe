@@ -1,5 +1,8 @@
 Pset 1 Intro to Computers, Programs, Python
 https://docs.google.com/document/d/1SqhKupSJNKZ4VSlGJL_T51e18alAvep_2x2jb8m0p_M/copy
 
-Pset 2.1 Elementary Programming
+Pset 2 Elementary Programming
 https://docs.google.com/document/d/1CkJRe8tSpvYIG_DI9Ahdie2ke_Vh0TEIvV7Q_gevm-k/copy
+
+Pset 3 Mathematical Functions, Strings, and Objects
+https://docs.google.com/document/d/1rPKm0GNpbQGBtHxabJK03577Yad2Msx2IKBr3XkI3gM/copy
