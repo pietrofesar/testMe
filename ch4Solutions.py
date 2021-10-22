@@ -345,6 +345,7 @@ def ch4_12(file):
     key = f'{number} is not divisible by 5 or 6'
     helpers.assess(child, 'ch4_12.py case 4', key)
 
+# solutions below here need update to assess function
 
 def ch4_16(file):
     child = pexpect.spawnu(f'python3 {file}')
