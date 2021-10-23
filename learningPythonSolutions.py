@@ -382,19 +382,13 @@ def rightStack(file):
     
 def pyramidStacks(file):
     height = random.randint(3, 8)
-    hashes, spaces = 1, height - 1
     key = ''
-    for row in range(1, height + 1):
-        for space in range(spaces):
-            key += ' '
-        for hash in range(hashes):
-            key += '#'
-        spaces -= 1
-        hashes += 2
-        key += '\r\n'
+    for i in range(1, height + 1):
+      key += ' ' * (height - i)
+      key += f'{"#" * i}{"#" * (i - 1)}\r\n'
     child = pexpect.spawnu(f'python3 {file}')     
     child.sendline(str(height))
-    helpers.assess(child, f'pyramidStacks.py', key)
+    helpers.assess(child, 'pyramidStacks.py', key)
     
     
 def validate(file):
