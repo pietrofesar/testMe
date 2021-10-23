@@ -380,7 +380,7 @@ def rightStack(file):
     helpers.assess(child, f'rightStacks.py', key)
     
     
-def pyramidStacks(file):
+def stacks(file):
     height = random.randint(3, 8)
     key = ''
     for i in range(1, height + 1):
