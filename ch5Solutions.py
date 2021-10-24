@@ -145,7 +145,7 @@ def ch5_4(file):
     miles = 1
     while miles <= 10:
         kilometers = miles * 1.609
-        key += f'{miles:<7}{kilometers:.3f}\r\n'
+        key += f'{miles:<7}{kilometers:<10.3f}\r\n'
         miles += 1
     # generate python instance
     child = pexpect.spawnu(f'python3 {file}')
