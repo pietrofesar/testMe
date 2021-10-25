@@ -260,19 +260,15 @@ def ch5_13(file):
     # generate python instance
     child = pexpect.spawnu(f'python3 {file}')
     key = ''
-    i = 100
-    while i <= 200:
-        count = 0
-        key = ''
-        line = ''
-        while count < 10 and i <= 200:
-            if i % 5 == 0 or i % 6 == 0 and not(i % 5 == 0 and i % 6 == 0):
-                line += str(i)
-                count += 1
-                if count != 10:
-                    line += ' '
-            i += 1
-        key += f'{line}\r\n' 
+    n = 100
+    count = 0
+    while n <= 200:
+      if (n % 5 == 0 and not n % 6 == 0) or (not n % 5 == 0 and n % 6 == 0):
+        count += 1
+        key += f'{n} '
+        if count % 10 == 0:
+          key +=  '\r\n'
+      n += 1
     helpers.assess(child, f'ch5_13.py', key)  
     
     
@@ -295,7 +291,7 @@ def ch5_15(file):
     n = 1
     while n**3 < 12000:
         n += 1
-    key += f'{n - 1}\r\n'
+    key += f'{n}\r\n'
     helpers.assess(child, f'ch5_15.py', key)  
 
 
