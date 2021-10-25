@@ -298,10 +298,13 @@ def ch5_15(file):
 def ch5_17(file):
     child = pexpect.spawnu(f'python3 {file}')
     key = ''
-    for char in range(33, 127, 10):
-        for each in range(10):
-            key += f'{chr(char)} '
-            char += 1
+    n = 33
+    count = 0
+    while n <= 126:
+      key += f'{chr(n)} '
+      count += 1
+      n += 1
+      if count % 10 == 0:
         key += '\r\n'
     helpers.assess(child, f'{file}', key)
 
@@ -379,31 +382,16 @@ def ch5_21(file):
     # generate python instance
     child = pexpect.spawnu(f'python3 {file}')
     key = ''
-    LINES = 8
-    spaces = LINES * 4 - 4
-    # loops for the number of rows
-    for i in range(1, LINES + 1):
-        output = ''
-        # creates the spaces part of the row
-        for j in range(spaces):
-            output += ' '
-        
-        # creates the left digits decreasing part of a row
-        power = 0
-        for j in range(i):
-            output += f'{str(2 ** power):>4}'
-            power += 1
-            
-        
-        # creates the right digits increasing part of a row
-        power = i - 2
-        for j in range(i - 1):
-            output += f'{str(2 ** power):>4}'
-            power -= 1
-        key += f'{output}\r\n'
-        
-        # update counters
-        spaces -= 4
+    n = random.randint(3, 10)
+    for line in range(0, n + 1):
+      for s in range(n - line):
+        key += f'{"    "}'
+      for i in range(0, line):
+        key += f'{2**i:>4}'
+      for i in range(line, -1, -1):
+        key +=f'{2**i:>4}'
+      key += '\r\n'
+    child.sendline(str(n))
     helpers.assess(child, f'ch5_21.py', key)
     
 
