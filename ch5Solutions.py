@@ -153,18 +153,15 @@ def ch5_4(file):
 
 
 def ch5_5(file):
-    key = f'{"Kilograms":<11}{"Pounds":<7}| {"Pounds":<7}{"Kilograms":<9}\r\n'
-    kilograms1 = 1
-    pounds2 = 20
-    while kilograms1 <= 199:
-        pounds1 = kilograms1 * 2.2 
-        kilograms2 = pounds2 * .4536
-        key += f'{kilograms1:<11}{pounds1:<7.1f}| {pounds2:<7}{kilograms2:<9.2f}\r\n'
-        kilograms1 += 2
-        pounds2 += 5
-    # generate python instance
-    child = pexpect.spawnu(f'python3 {file}')
-    helpers.assess(child, f'ch5_5.py', key)
+  key = ''
+  pounds = 20
+  key +=f'{"Kilograms":<11}{"Pounds":<7}| {"Pounds":<7}{"Kilograms":<9}\r\n'
+  for i in range(1, 200, 2):
+    key += f'{i:<11}{i * 2.2:<7.1f}| {pounds:<7}{pounds * .4356:<9.2f}\r\n'
+    pounds += 5
+  # generate python instance
+  child = pexpect.spawnu(f'python3 {file}')
+  helpers.assess(child, f'ch5_5.py', key)
 
 
 def ch5_6(file):
