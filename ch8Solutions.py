@@ -42,30 +42,30 @@ def ch8_1(file):
 def ch8_2(file):
     words = ['hot', 'cold', 'cat', 'mouse', 'pizza', 'wet']
     
-    def sub_pass(words):
-        key = random.randint(0, len(words) - 1)
-        key = words[key]
-        for i in range(len(words)):
-            key += words[random.randint(0, len(words) - 1)]
-        return words[key], key
+    def subPass(words):
+        sub = key = random.choice(words)
+        for each in words:
+            key += random.choice(words)
+        return sub, key
     
-    def sub_fail(words):
-        key = random.randint(0, len(words) - 1)
+    def subFail(words):
+        sub = random.choice(words)
         key = ''
-        for i in range(len(words)):
-            if i != key:
-                key += words[i]
-        return words[key], key
+        for each in words:
+            temp = random.choice(words)
+            if temp != sub:
+              key += temp
+        return sub, key
     
-    key, key = sub_pass(words)
+    sub, key = subPass(words)
     child = pexpect.spawnu(f'python3 {file}')
-    child.sendline(key)
+    child.sendline(sub)
     child.sendline(key)
     helpers.assess(child, "ch8_2.py Case 1", 'is a substring')
     
-    key, key = sub_fail(words)
+    sub, key = subFail(words)
     child = pexpect.spawnu(f'python3 {file}')
-    child.sendline(key)
+    child.sendline(sub)
     child.sendline(key)
     helpers.assess(child, "ch8_2.py Case 2", 'not a substring')
     
