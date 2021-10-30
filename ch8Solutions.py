@@ -222,25 +222,25 @@ def ch8_13(file):
     tests = ['disinfection', 'distance', 'diolate', 'dissatisfactory','dissimilarities', 'dissatisfactory', 'disable', 'disagree',
              'onynx', 'onion', 'onbaord', 'onomatopoeia', 'overboard', 'inline', 'online', 'reunion', 'satisfactory', 'violate']
     #case 1
-    child = pexpect.spawnu(f'python3 {file}')
     s1 = random.choice(tests)
     while True: 
         s2 = random.choice(tests)
         if s1 != s2 and s1[0] == s2[0]:
             break
     key = prefix(s1, s2)
+    child = pexpect.spawnu(f'python3 {file}')
     child.sendline(s1)
     child.sendline(s2)
     helpers.assess(child, f'ch8_13.py case 1', key)
     
     #case 2
-    child = pexpect.spawnu(f'python3 {file}')
     s1 = random.choice(tests)
     while True: 
         s2 = random.choice(tests)
         if s1 != s2 and s1[0] != s2[0]:
             break
     key = prefix(s1, s2)
+    child = pexpect.spawnu(f'python3 {file}')
     child.sendline(s1)
     child.sendline(s2)
     helpers.assess(child, f'ch8_13.py case 2', 'no matches')
