@@ -209,28 +209,38 @@ def ch8_12(file):
 
 def ch8_13(file):
     def prefix(s1, s2):
-        i = 0
-        shortest = min(len(s1), len(s2))
-        while s1[i] == s2[i] and i < shortest:
-            i += 1
-        if s1[0] != s2[0]:
-            return 'no matches'
-        else:
-            return s1[:i]
+      prefix = ''
+      if s1[0] == s2[0]:
+        length = min(len(s1), len(s2))
+        for i in range(length):
+          if s1[i] == s2[i]:
+            prefix += s1[i]
+          else:
+            break
+      return prefix
         
+    tests = ['disinfection', 'distance', 'diolate', 'dissatisfactory','dissimilarities', 'dissatisfactory', 'disable', 'disagree',
+             'onynx', 'onion', 'onbaord', 'onomatopoeia', 'overboard', 'inline', 'online', 'reunion', 'satisfactory', 'violate']
+    #case 1
+    child = pexpect.spawnu(f'python3 {file}')
+    s1 = random.choice(tests)
+    while True: 
+        s2 = random.choice(tests)
+        if s1 != s2 and s1[0] == s2[0]:
+            break
+    key = prefix(s1, s2)
+    child.sendline(s1)
+    child.sendline(s2)
+    helpers.assess(child, f'ch8_13.py case 1', key)
     
-    for i in range(3):
-        tests = ['disinfection', 'distance', 'diolate', 'dissatisfactory', 
-                'dissimilarities', 'dissatisfactory', 'disable', 'disagree',
-                'onynx', 'onion', 'onbaord', 'online']
-        child = pexpect.spawnu(f'python3 {file}')
-        test1 = tests[random.randint(0, len(tests) - 1)]
-        while True: 
-            test2 = tests[random.randint(0, len(tests) - 1)]
-            if test1 != test2:
-                break
-       
-        child.sendline(test1)
-        child.sendline(test2)
-        helpers.assess(child, f'ch8_13.py test{i + 1}', str(prefix(test1, test2)))
-    
+    #case 2
+    child = pexpect.spawnu(f'python3 {file}')
+    s1 = random.choice(tests)
+    while True: 
+        s2 = random.choice(tests)
+        if s1 != s2 and s1[0] != s2[0]:
+            break
+    key = prefix(s1, s2)
+    child.sendline(s1)
+    child.sendline(s2)
+    helpers.assess(child, f'ch8_13.py case 2', 'no matches')
