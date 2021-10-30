@@ -90,7 +90,10 @@ def main():
       # call the solution
       try:
         eval(pset + '(studentFile)')
-      except:
-        print(f'{BR}Fatal Error\n{R}Run your submission in the shell and look for exceptions\nLook in your code for highlighted errors too\n{X}')
+      except Exception as e:
+        print(e)
+        
+        print(f'{BA}Fatal Error\n{Y}Run your submission in the shell and look for exceptions\nLook in your code for highlighted errors too\n{X}')
+        
         sys.exit()
 main()
