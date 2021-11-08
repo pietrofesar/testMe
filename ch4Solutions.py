@@ -209,29 +209,29 @@ def ch4_7(file):
         result = f'Your amount ${amount} consists of\r\n'
         if money[0] >= 1:
             if money[0] == 1:
-                result += f'\t{money[0]} dollar\r\n'
+                result += f'{money[0]} dollar\r\n'
             else:
-                result += f'\t{money[0]} dollars\r\n'
+                result += f'{money[0]} dollars\r\n'
         if money[1] >= 1:
             if money[1] == 1:
-                result += f'\t{money[1]} quarter\r\n'
+                result += f'{money[1]} quarter\r\n'
             else:
-                result += f'\t{money[1]} quarters\r\n'
+                result += f'{money[1]} quarters\r\n'
         if money[2] >= 1:
             if money[2] == 1:
-                result += f'\t{money[2]} dime\r\n'
+                result += f'{money[2]} dime\r\n'
             else:
-                result += f'\t{money[2]} dimes\r\n'
+                result += f'{money[2]} dimes\r\n'
         if money[3] >= 1:
             if money[3] == 1:
-                result += f'\t{money[3]} nickel\r\n'
+                result += f'{money[3]} nickel\r\n'
             else:
-                result += f'\t{money[3]} nickels\r\n'
+                result += f'{money[3]} nickels\r\n'
         if money[4] >= 1:
             if money[4] == 1:
-                result += f'\t{money[4]} penny\r\n'
+                result += f'{money[4]} penny\r\n'
             else:
-                result += f'\t{money[4]} pennies\r\n'
+                result += f'{money[4]} pennies\r\n'
         return result
 
     amount = [0.13, 1.41, 4.69]
