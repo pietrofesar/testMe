@@ -33,7 +33,7 @@ def green1_18(file):
         return result
     
     child = pexpect.spawnu(f'python3 {file}')
-    n = random.randint(0, 9)
+    n = random.randint(0, 50)
     child.sendline(str(n))
     helpers.assess(child, 'g1_2018.py', str(fourthsum(n)))
 
