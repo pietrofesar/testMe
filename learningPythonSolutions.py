@@ -612,7 +612,7 @@ def whileLoop3(file):
     
     
 def whileLoop4(file):
-    count, accumulator, positives, negatives = 0, 0, 0, 0
+    count, accumulator, positives, negatives = 1, 0, 0, 0
     repeat = random.randint(3, 8)
     child = pexpect.spawnu(f'python3 {file}')
     for each in range(repeat):
