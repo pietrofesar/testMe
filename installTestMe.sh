@@ -19,7 +19,7 @@ BA='\033[1;36m'   # bold aqua
 X='\033[0m'       # reset
 
 echo -e "${Y}This will update the current Amazon Linux OS${X}"
-sudo yum update
+sudo yum update -y
 
 echo -e "${G}Current version of Python:"
 python3 --version
