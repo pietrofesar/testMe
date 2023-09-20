@@ -56,7 +56,7 @@ export PATH=$PATH:~/testMe
 
 # download source files
 curl --output ~/testMe/sandBoxSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py"
-curl --output ~/testMe/ch10Solution.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch10Solutions.py"
+curl --output ~/testMe/ch10Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch10Solutions.py"
 curl --output ~/testMe/ch1Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch1Solutions.py"
 curl --output ~/testMe/ch2Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch2Solutions.py"
 curl --output ~/testMe/ch3Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch3Solutions.py"
