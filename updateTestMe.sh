@@ -24,32 +24,40 @@ A='\033[0;36m'    # aqua
 BA='\033[1;36m'   # bold aqua
 X='\033[0m'       # reset
 echo -e "${Y}Collecting and overwriting testMe Python autograder utility.${X}"
-rm -r /home/testMeFolder
-mkdir /home/testMeFolder
+rm -r ~/testMe
+mkdir ~testMe
+
+# make folder for files
+mkdir ~/testMe
+
+# add path for scripts
+export PATH=$PATH:/~/testMe
 
 # download source files
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py -O /home/testMeFolder/sandBoxSolutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch10Solutions.py -O /home/testMeFolder/ch10Solutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch1Solutions.py -O /home/testMeFolder/ch1Solutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch2Solutions.py -O /home/testMeFolder/ch2Solutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch3Solutions.py -O /home/testMeFolder/ch3Solutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch4Solutions.py -O /home/testMeFolder/ch4Solutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch5Solutions.py -O /home/testMeFolder/ch5Solutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch6Solutions.py -O /home/testMeFolder/ch6Solutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch7Solutions.py -O /home/testMeFolder/ch7Solutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/ch8Solutions.py -O /home/testMeFolder/ch8Solutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/helpers.py -O /home/testMeFolder/helpers.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/learningPythonSolutions.py -O /home/testMeFolder/learningPythonSolutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/siennaSolutions.py -O /home/testMeFolder/siennaSolutions.py
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.py -O /home/testMeFolder/testMe.py
+curl --output ~/testMe/sandBoxSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py"
+curl --output ~/testMe/ch10Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch10Solutions.py"
+curl --output ~/testMe/ch1Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch1Solutions.py"
+curl --output ~/testMe/ch2Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch2Solutions.py"
+curl --output ~/testMe/ch3Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch3Solutions.py"
+curl --output ~/testMe/ch4Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch4Solutions.py"
+curl --output ~/testMe/ch5Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch5Solutions.py"
+curl --output ~/testMe/ch6Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch6Solutions.py"
+curl --output ~/testMe/ch7Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch7Solutions.py"
+curl --output ~/testMe/ch8Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch8Solutions.py"
+curl --output ~/testMe/helpers.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/helpers.py"
+curl --output ~/testMe/learningPythonSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/learningPythonSolutions.py"
+curl --output ~/testMe/siennaSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/siennaSolutions.py"
+curl --output ~/testMe/testMe.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.py"
 
 
-#echo -e "${Y}Installing the updateTestMe utility${X}"
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/updateTestMe.sh -O /home/testMeFolder/updateTestMe.sh; sudo chmod +x /home/testMeFolder/updateTestMe.sh
-sudo mv /home/testMeFolder/updateTestMe.sh /home/testMeFolder/updateTestMe
+echo -e "${Y}Installing the updateTestMe utility${X}"
+curl --output ~/testMe/updateTestMe.sh "https://raw.githubusercontent.com/pietrofesar/testMe/main/updateTestMe.sh"
+chmod +x ~/testMe/updateTestMe.sh
+#mv ~/testMe/updateTestMe.sh ~/testMe/updateTestMe
 
-#echo -e "${Y}Installing the testMe utility${X}"
-sudo wget -q  wget https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe -O /home/testMeFolder/testMe.sh; sudo chmod +x /home/testMeFolder/testMe.sh
-sudo mv /home/testMeFolder/testMe.sh /home/testMeFolder/testMe
+echo -e "${Y}Installing the testMe utility${X}"
+curl --output ~/testMe/testMe.sh "https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.sh" 
+chmod +x ~/testMe/testMe.sh
+#mv ~/testMe/testMe.sh ~/testMe/testMe
 
 bash testMe.sh
