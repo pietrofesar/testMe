@@ -52,7 +52,7 @@ echo -e "${Y}Installing the Python autograder testMe source file${X}"
 mkdir ~/testMe
 
 # add path for scripts
-export PATH=$PATH:~/testMe
+export PATH=$PATH:/~/testMe
 
 # download source files
 curl --output ~/testMe/sandBoxSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py"
