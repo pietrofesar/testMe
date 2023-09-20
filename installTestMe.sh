@@ -53,6 +53,9 @@ mkdir ~/testMe
 
 # add path for scripts
 export PATH=$PATH:/~/testMe
+echo "PATH=$PATH:/~/testMe/" >> ~/.bashrc
+
+
 
 # download source files
 curl --output ~/testMe/sandBoxSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py"
