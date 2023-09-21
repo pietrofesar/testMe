@@ -18,6 +18,12 @@ A='\033[0;36m'    # aqua
 BA='\033[1;36m'   # bold aqua
 X='\033[0m'       # reset
 
+# constant for destination folder
+HOME=$PWD/testMe
+
+# make folder for files
+mkdir $HOME
+
 #echo -e "${Y}This will update the current Amazon Linux OS${X}"
 #sudo yum update -y
 
@@ -48,41 +54,36 @@ echo -e "${X}"
 
 
 echo -e "${Y}Installing the Python autograder testMe source file${X}"
-# make folder for files
-mkdir ~/testMe
 
-# add path for scripts
-export PATH=$PATH:/~/testMe
-echo "PATH=$PATH:/~/testMe/" >> ~/.bashrc
-
-
+# add path for scripts - need to update global path
+export PATH=$PATH:$HOME
 
 # download source files
-curl --output ~/testMe/sandBoxSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py"
-curl --output ~/testMe/ch10Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch10Solutions.py"
-curl --output ~/testMe/ch1Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch1Solutions.py"
-curl --output ~/testMe/ch2Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch2Solutions.py"
-curl --output ~/testMe/ch3Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch3Solutions.py"
-curl --output ~/testMe/ch4Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch4Solutions.py"
-curl --output ~/testMe/ch5Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch5Solutions.py"
-curl --output ~/testMe/ch6Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch6Solutions.py"
-curl --output ~/testMe/ch7Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch7Solutions.py"
-curl --output ~/testMe/ch8Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch8Solutions.py"
-curl --output ~/testMe/helpers.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/helpers.py"
-curl --output ~/testMe/learningPythonSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/learningPythonSolutions.py"
-curl --output ~/testMe/siennaSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/siennaSolutions.py"
-curl --output ~/testMe/testMe.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.py"
+curl --output $HOME/sandBoxSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py"
+curl --output $HOME/ch10Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch10Solutions.py"
+curl --output $HOME/ch1Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch1Solutions.py"
+curl --output $HOME/ch2Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch2Solutions.py"
+curl --output $HOME/ch3Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch3Solutions.py"
+curl --output $HOME/ch4Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch4Solutions.py"
+curl --output $HOME/ch5Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch5Solutions.py"
+curl --output $HOME/ch6Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch6Solutions.py"
+curl --output $HOME/ch7Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch7Solutions.py"
+curl --output $HOME/ch8Solutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/ch8Solutions.py"
+curl --output $HOME/helpers.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/helpers.py"
+curl --output $HOME/learningPythonSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/learningPythonSolutions.py"
+curl --output $HOME/siennaSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/siennaSolutions.py"
+curl --output $HOME/testMe.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.py"
 
 
 echo -e "${Y}Installing the updateTestMe utility${X}"
-curl --output ~/testMe/updateTestMe.sh "https://raw.githubusercontent.com/pietrofesar/testMe/main/updateTestMe.sh"
-chmod +x ~/testMe/updateTestMe.sh
-#mv ~/testMe/updateTestMe.sh ~/testMe/updateTestMe
+curl --output $HOME/updateTestMe.sh "https://raw.githubusercontent.com/pietrofesar/testMe/main/updateTestMe.sh"
+chmod +x $HOME/updateTestMe.sh
+#mv $HOME/updateTestMe.sh $HOME/updateTestMe
 
 echo -e "${Y}Installing the testMe utility${X}"
-curl --output ~/testMe/testMe.sh "https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.sh" 
-chmod +x ~/testMe/testMe.sh
-#mv ~/testMe/testMe.sh ~/testMe/testMe
+curl --output $HOME/testMe.sh "https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.sh" 
+chmod +x $HOME/testMe.sh
+#mv $HOME/testMe.sh $HOME/testMe
 
 
 echo -e "${Y}Removing installTestMe script${X}"
