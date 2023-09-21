@@ -1,3 +1,3 @@
 #!/bin/bash
-python $PWD/testMe/testMe.py $1
+python testMe.py $1
 
