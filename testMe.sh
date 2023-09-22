@@ -1,3 +1,3 @@
 #!/bin/bash
-python testMe.py $1
+python ~/test/testMe/testMe.py $1
 
