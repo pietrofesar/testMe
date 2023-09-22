@@ -28,28 +28,28 @@ mkdir $HOME
 #sudo yum update -y
 
 echo -e "${G}Current version of Python:"
-python3 --version
+python --version
 echo -e "${X}"
 
 echo -e "${Y}Installing pip${X}"
 curl -O https://bootstrap.pypa.io/get-pip.py # Get the install script.
-python3 get-pip.py --user                       # Install pip.
+python get-pip.py --user                       # Install pip.
 rm get-pip.py                                # Delete the install script.
 
 echo -e "${G}Current version of pip:"
-pip3 --version
+pip --version
 echo -e "${X}"
 
 echo -e "${Y}Installing the pexpect package${X}"
-pip3 install pexpect --user
+pip install pexpect --user
 echo -e "${G}Current version of pexpect:"
-pip3 show pexpect
+ show pexpect
 echo -e "${X}"
 
 echo -e "${Y}Installing the numpy package${X}"
-pip3 install numpy --user
+pip install numpy --user
 echo -e "${G}Current version of numpy:"
-pip3 show numpy
+pip show numpy
 echo -e "${X}"
 
 
