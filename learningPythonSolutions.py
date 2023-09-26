@@ -5,7 +5,6 @@ import random
 import math
 import time
 import helpers
-
 from subprocess import Popen, PIPE, STDOUT
 
 
@@ -67,29 +66,56 @@ def slices(file):
      
 
 def madlib(file):
-        """
-        :param file: the python file passed as a command line argument 
-        :return None: 
-        test suite for madlib.py
-        """
-        # words to enter
-        words = ['<to>', '<adj>', '<verb1>', '<body_part>', '<num>', '<noun>', '<adverb>', '<verb2>', '<verb3>',
-                '<pronouns>', '<author>']
-        key = 'Dear <to>,\r\nYou are extremely <adj> and I <verb1> you.\r\n' \
-                 'I want to kiss your <body_part> <num> times.\r\n' \
-                 'You make my <noun> burn with desire.\r\n' \
-                 'When I first saw you, I <adverb> <verb2> at you and fell in love.\r\n' \
-                 'Will you <verb3> out with me?\r\n' \
-                 'Don\'t let your parents discourage you, <pronouns> are just jealous.\r\n' \
-                 'Yours forever, <author> :)\r\n'
-        # creates the child instance
-        child = pexpect.spawnu(f'python3 {file}')
-        # enters the words
-        for each in words:
-            child.sendline(each)
-        helpers.assess(child, "madlib.py", key)
-        if child.isalive:
-            child.kill(2)
+  """
+  :param file: the python file passed as a command line argument 
+  :return None: 
+  test suite for madlib.py
+  """
+  # words to enter
+  names = ['Riley', 'Bowen', 'Stacey', 'Charlie', 'Blake', 'Quinn']
+  adjectives = ['ashamed', 'damaging', 'gorgeous', 'thrilled', 'destitute', 'miraculous', 'jittery', 'frivolous', 'prestigious']
+  verbs = ['tell', 'find', 'use', 'make', 'felt', 'want', 'call', 'love', 'kill']
+  bodyParts = ['knee', 'elbow', 'lips', 'big toe', 'arm pit', 'eye lid', 'pinky', 'naughty bits']
+  nouns = ['house', 'eyeball', 'dog', 'cat', 'mom', 'dad', 'foot', 'lips']
+  adverbs = ['quickly', 'rarely', 'badly', 'often', 'impatiently', 'forcefully']
+  pronouns = ['we', 'they', 'thou', 'you', 'he', 'she']
+  
+  words = []
+  random.shuffle(names)
+  random.shuffle(adjectives)
+  random.shuffle(verbs)
+  random.shuffle(bodyParts)
+  random.shuffle(nouns)
+  random.shuffle(adverbs)
+  random.shuffle(pronouns)
+  
+  words.append(names.pop())
+  words.append(adjectives.pop())
+  words.append(verbs.pop())
+  words.append(bodyParts.pop())
+  words.append(str(random.randint(0, 50)))
+  words.append(nouns.pop())
+  words.append(adverbs.pop())
+  words.append(verbs.pop())
+  words.append(verbs.pop())
+  words.append(pronouns.pop())
+  words.append(names.pop())
+  
+  key = f'Dear {words[0]},\r\nYou are extremely {words[1]} and I {words[2]} you.\r\n'
+  key += f'I want to kiss your {words[3]} {words[4]} times.\r\n' 
+  key += f'You make my {words[5]} burn with desire.\r\n' 
+  key += f'When I first saw you, I {words[6]} {words[7]} at you and fell in love.\r\n'
+  key += f'Will you {words[8]} out with me?\r\n'
+  key += f'Don\'t let your parents discourage you, {words[9]} are just jealous.\r\n'
+  key += f'Yours forever, {words[10]} :)\r\n'
+  # creates the child instance
+  child = pexpect.spawnu(f'python3 {file}')
+  # enters the words
+  for each in words:
+    child.sendline(each)
+  helpers.assess(child, "madlib.py", key)
+  if child.isalive:
+    child.kill(2)
 
 
 def greedy(file):
