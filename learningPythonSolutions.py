@@ -79,6 +79,7 @@ def madlib(file):
   nouns = ['house', 'eyeball', 'dog', 'cat', 'mom', 'dad', 'foot', 'lips']
   adverbs = ['quickly', 'rarely', 'badly', 'often', 'impatiently', 'forcefully']
   pronouns = ['we', 'they', 'thou', 'you', 'he', 'she']
+  nicknames = ['Stormin Normin', 'Big Toe Jenkins', 'B O Bobby', 'Sugar Butt', 'Rizzle Dizzle',  'Dead Ted', 'Large Marge']
   
   words = []
   random.shuffle(names)
@@ -99,7 +100,7 @@ def madlib(file):
   words.append(verbs.pop())
   words.append(verbs.pop())
   words.append(pronouns.pop())
-  words.append(names.pop())
+  words.append(nicknames.pop())
   
   key = f'Dear {words[0]},\r\nYou are extremely {words[1]} and I {words[2]} you.\r\n'
   key += f'I want to kiss your {words[3]} {words[4]} times.\r\n' 
