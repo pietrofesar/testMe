@@ -78,12 +78,12 @@ curl --output $HOME/testMe.py "https://raw.githubusercontent.com/pietrofesar/tes
 echo -e "${Y}Installing the updateTestMe utility${X}"
 curl --output $HOME/updateTestMe.sh "https://raw.githubusercontent.com/pietrofesar/testMe/main/updateTestMe.sh"
 chmod +x $HOME/updateTestMe.sh
-#mv $HOME/updateTestMe.sh $HOME/updateTestMe
+mv $HOME/updateTestMe.sh $HOME/updateTestMe
 
 echo -e "${Y}Installing the testMe utility${X}"
 curl --output $HOME/testMe.sh "https://raw.githubusercontent.com/pietrofesar/testMe/main/testMe.sh" 
 chmod +x $HOME/testMe.sh
-#mv $HOME/testMe.sh $HOME/testMe
+mv $HOME/testMe.sh $HOME/testMe
 
 
 echo -e "${Y}Removing installTestMe script${X}"
