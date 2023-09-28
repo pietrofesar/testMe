@@ -89,6 +89,8 @@ def madlib(file):
   random.shuffle(nouns)
   random.shuffle(adverbs)
   random.shuffle(pronouns)
+  random.shuffle(nicknames)
+
   
   words.append(names.pop())
   words.append(adjectives.pop())
