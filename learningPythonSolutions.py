@@ -79,7 +79,7 @@ def madlib(file):
   nouns = ['house', 'eyeball', 'dog', 'cat', 'mom', 'dad', 'foot', 'lips']
   adverbs = ['quickly', 'rarely', 'badly', 'often', 'impatiently', 'forcefully']
   pronouns = ['we', 'they', 'thou', 'you', 'he', 'she']
-  nicknames = ['Stormin Normin', 'Big Toe Jenkins', 'B O Bobby', 'Sugar Butt', 'Rizzle Dizzle',  'Dead Ted', 'Large Marge']
+  nicknames = ['Stormin Normin', 'Big Toe Jenkins', 'B O Bobby', 'Sugar Butt', 'Rizzle Dizzle',  'Dead Ted', 'Large Marge', 'Slippery Rick', 'Snarful Poopkin', 'Rorybob Poop Pants']
   
   words = []
   random.shuffle(names)
