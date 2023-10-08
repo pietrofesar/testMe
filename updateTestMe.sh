@@ -27,16 +27,16 @@ echo -e "${Y}Collecting and overwriting testMe Python autograder utility.${X}"
 
 # location of grader files
 filePath=$PWD/testMe
-echo $filePath
+# echo $filePath
 
 # remove all previous files
-rm -r $filePath
+rm -r $filePath/*
 
 # create directory for new files
-mkdir $filePath
+# mkdir $filePath
 
 # add path for scripts
-export PATH=$PATH:/$filePath
+# export PATH=$PATH:/$filePath
 
 # download source files
 curl --output $filePath/sandBoxSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py"
