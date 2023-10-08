@@ -226,7 +226,7 @@ def fahrenheit(file):
     test suite for fahrenheit.py
     """
     data = [['0', '0.0'], ['100', '100.0'], ['32', '32.0'], ['212', '212.0']]
-    key = ['Enter the temperature in degrees Fahrenheit: ', '{} degrees Fahrenheit is approximately {}° Celsius.']
+    key = ['Enter the temperature in degrees Fahrenheit: ', '{}° Fahrenheit is approximately {}° Celsius.']
     
     # creates the child instance
     child = pexpect.spawnu(f'python3 {file}')
