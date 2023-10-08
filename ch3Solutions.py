@@ -79,12 +79,12 @@ def ch3_5(file):
     helpers.assess(child, "ch3_5.py", key)
 
 
-def ch3_6(file):
+def ascii(file):
     child = pexpect.spawnu(f'python3 {file}')
     n = random.randint(0, 127)
     child.sendline(str(n))
     key = f"The character is {chr(n)}"
-    helpers.assess(child, "ch3_6.py", key)
+    helpers.assess(child, "ascii.py", key)
             
             
 def ch3_7(file):
