@@ -20,7 +20,7 @@ X='\033[0m'       # reset
 
 # constant for destination folder
 filePath=$PWD/testMe
-echo $filePath
+#echo $filePath
 # make folder for files
 mkdir $filePath
 
@@ -56,7 +56,7 @@ echo -e "${X}"
 echo -e "${Y}Installing the Python autograder testMe source file${X}"
 
 # add path for scripts - need to update global path
-export PATH=$PATH:$filePath
+# export PATH=$PATH:$filePath
 
 # download source files
 curl --output $filePath/sandBoxSolutions.py "https://raw.githubusercontent.com/pietrofesar/testMe/main/sandBoxSolutions.py"
@@ -88,4 +88,4 @@ mv $filePath/testMe.sh $filePath/testMe
 
 echo -e "${Y}Removing installTestMe script${X}"
 
-#rm -- "$0"
+rm -- "$0"
