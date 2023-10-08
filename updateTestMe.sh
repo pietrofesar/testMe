@@ -65,4 +65,4 @@ curl --output $filePath/testMe.sh "https://raw.githubusercontent.com/pietrofesar
 chmod +x $filePath/testMe.sh
 mv $filePath/testMe.sh $filePath/testMe
 
-bash testMe
+testMe
