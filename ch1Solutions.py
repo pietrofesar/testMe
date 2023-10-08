@@ -25,23 +25,23 @@ BA = '\033[1;36m'   # bold aqua
 X = '\033[0m'       # reset
 
 
-def ch1_1(file):
+def helloWorld(file):
     child = pexpect.spawnu(f'python3 {file}')
-    key = 'Welcome to Python\r\nWelcome to Computer Science\r\nProgramming is fun\r\n'
+    key = 'Hello World!\r\nWelcome to Computer Science\r\nProgramming is fun\r\n'
     # check the correctness of the submission
-    helpers.assess(child, "ch1_1.py", key)
+    helpers.assess(child, "helloWorld.py", key)
     
 
-def ch1_2(file):
+def fun(file):
     child = pexpect.spawnu(f'python3 {file}')
     key = 'FFFF  U    U  N    N\r\nF     U    U  NN   N\r\nFFFF  U    U  N N  N\r\nF     U    U  N  N N\r\nF      UUUU   N   NN\r\n'
-    helpers.assess(child, "ch1_2.py", key)
+    helpers.assess(child, "fun.py", key)
     
  
-def ch1_3(file):
+def smileyFace(file):
     child = pexpect.spawnu(f'python3 {file}')
     key = ' ---------\r\n|  O   O  |\r\n|    U    |\r\n|  \\___/  |\r\n|         |\r\n ---------\r\n'
-    helpers.assess(child, "ch1_3.py", key)
+    helpers.assess(child, "smileyFace.py", key)
     
             
 def ch1_4(file):
