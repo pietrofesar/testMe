@@ -88,4 +88,7 @@ mv $filePath/testMe.sh $filePath/testMe
 
 echo -e "${Y}Removing installTestMe script${X}"
 
+# echo filePath to update Secret in repl
+echo $filePath
+
 rm -- "$0"
