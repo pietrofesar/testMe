@@ -26,7 +26,7 @@ mkdir $filePath
 
 #echo -e "${Y}This will update the current Amazon Linux OS${X}"
 #sudo yum update -y
-
+'''
 echo -e "${G}Current version of Python:"
 python --version
 echo -e "${X}"
@@ -51,7 +51,7 @@ pip install numpy --user
 echo -e "${G}Current version of numpy:"
 pip show numpy
 echo -e "${X}"
-
+'''
 
 echo -e "${Y}Installing the Python autograder testMe source file${X}"
 
