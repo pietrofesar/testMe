@@ -48,7 +48,7 @@ from learningPythonSolutions import *
 from siennaSolutions import *
 
 # version number
-VERSION = 4.1.0
+VERSION = '4.1.0'
 
 # text color constants
 R = '\033[0;31m'  # red
