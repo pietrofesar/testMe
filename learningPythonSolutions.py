@@ -128,15 +128,19 @@ def greedy(file):
     test suite for greedy.py
     """
     # creates the child instance
-    data_in = [3.84,  1.10, .30, .04]
-    data_out = ['15 quarters, 0 dimes, 1 nickels, 4 pennies', '4 quarters, 1 dimes, 0 nickels, 0 pennies', '1 quarters, 0 dimes, 1 nickels, 0 pennies', '0 quarters, 0 dimes, 0 nickels, 4 pennies']
-    
-    for i, each in enumerate(data_in):
-        child = pexpect.spawnu(f'python3 {file}')
-        child.sendline(str(each))
-        helpers.assess(child, "greedy.py", key)
-        if child.isalive:
-                child.kill(2) 
+    data = [['3.84', '15 quarters', '0 dimes', '1 nickels', '4 pennies'], ['1.10', '4 quarters', '1 dimes', '0 nickels', '0 pennies'], ['.30', '1 quarters', '0 dimes', '1 nickels', '0 pennies'], ['.04', '0 quarters', '0 dimes', '0 nickels', '4 pennies']]
+   
+    for i in range(len(data)):
+      child = pexpect.spawnu(f'python3 {file}')
+      child.sendline(data[i][0])
+      key = ''
+      for each in data[i][1:]:
+        key += f'{each}\r\n'
+      helpers.assess(child, "greedy.py", key)
+      if child.isalive:
+        child.kill(2) 
+			
+			
 
            
 def hypotenuse(file):
