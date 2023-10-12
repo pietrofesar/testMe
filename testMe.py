@@ -47,6 +47,9 @@ from ch10Solutions import *
 from learningPythonSolutions import *
 from siennaSolutions import *
 
+# version number
+VERSION = 4.1.0
+
 # text color constants
 R = '\033[0;31m'  # red
 BR = '\033[1;31m'  # bold red
@@ -66,7 +69,7 @@ X = '\033[0m'  # reset
 def main():
     # validate arguments
     if len(sys.argv) == 1:
-      print(f'{A}\nName: testMe\nVersion: 4.1.0\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com\Armand Caringi helped too!{X}\n')
+      print(f'{A}\nName: testMe\nVersion: {VERSION}\nSummary: testMe is a homegrown autograder\nAuthor: Rocco Pietrofesa\nAuthor-email: pietrofesar@gmail.com\Armand Caringi helped too!{X}\n')
     # wrong number of arguments - not working
     elif len(sys.argv) != 2:
         print(f'{R}Wrong amount of arguments entered{X}')
