@@ -816,3 +816,12 @@ def forLoop7(file):
             key += str(j % number)
     key += '\r\n'
     helpers.assess(child, 'forLoop7.py', key)
+
+def simpleCipher(file):
+  child = pexpect.spawnu(f'python3 {file}')
+  letter = chr(random.randint(97, 123))
+  shift = random.randint(3, 28)
+  child.sendline(letter)
+  child.sendline(str(shift))
+  letter = chr(((ord(letter) - 97 + shift) % 26) + 97)
+  helpers.assess(child, 'simpleCipher.py', letter)
