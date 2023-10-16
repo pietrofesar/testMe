@@ -463,3 +463,12 @@ def green6_19(file):
         child.sendline(f'{testData[i]}')
     helpers.assess(child, 'green6_2019.py', key)
 
+# 2021 solutions
+
+def sienna21G1(file):
+  child = pexpect.spawnu(f'python3 {file}')
+  m = random.randint(-20, 20)
+  n = random.randint(-20, 20)
+  child.sendline(str(m))  
+  child.sendline(str(n))
+  helpers.assess(child, 'sienna21G1', str(m * n))
